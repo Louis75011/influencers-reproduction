@@ -4,10 +4,12 @@ export default function Header() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <header>
       <span onClick={() => navigate("/")}>Icon</span>
-      <span onClick={() => navigate("/explore")}>Explore</span>
-      <span onClick={() => navigate("/login")}>Login</span>
-    </div>
+      <nav>
+        <span onClick={() => navigate("/explore")}>Explore</span>
+        <span onClick={() => navigate("/login")}>Login</span>
+      </nav>
+    </header>
   );
 }
