@@ -1,3 +1,20 @@
-.text-center {
+.home-container {
+    text-align: center;
+    margin: 6% 0;
+}
+
+.text-title {
+    font-size: 235%;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+    color: #222;
+}
+
+.text-subtitle {
+    color: gray;
+    font-size: 105%;
+    font-weight: 400;
+    margin: 1.5% 0 3.5% 0;
     text-align: center;
 }

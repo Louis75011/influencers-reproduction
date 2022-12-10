@@ -7,19 +7,20 @@ export default function Home() {
 
   return (
     <main>
-      <div className="text-center">
-        <p className="text-gradient">Find and Hire Influencers in Seconds</p>
-        <p>
+      <div className="home-container">
+        <h2 className="text-gradient text-title">
+          Find and Hire Influencers in Seconds
+        </h2>
+        <p className="text-subtitle">
           Find Instagram, TikTok, and YouTube influencers to create unique
           content for your brand
         </p>
-      </div>
-
-      <div>
-        <select name="" id=""></select>
-        <label htmlFor="">Categorie</label>
-        <input type="text" placeholder="Tag" />
-        <button>Search</button>
+        <div>
+          <select name="" id=""></select>
+          <label htmlFor="">Categorie</label>
+          <input type="text" placeholder="Tag" />
+          <button>Search</button>
+        </div>
       </div>
 
       <div>

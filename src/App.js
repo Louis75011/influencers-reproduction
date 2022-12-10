@@ -6,7 +6,8 @@ import Product from './components/views/Product'
 import Explore from './components/views/Explore'
 import Work from './components/views/Work'
 import Login from './components/views/Login'
-import Join from './components/views/Join'
+import JoinCreator from './components/views/JoinCreator'
+import JoinBrand from './components/views/JoinBrand'
 import Error from './components/layout/Error'
 import './App.css'
 
@@ -20,7 +21,8 @@ export default function App() {
               <Route path="/explore" element={<Explore />} />
               <Route path="/work" element={<Work />} />
               <Route path="/login" element={<Login />} /> 
-              <Route path="/join" element={<Join />} /> 
+              <Route path="/creator" element={<JoinCreator />} /> 
+              <Route path="/brand" element={<JoinBrand />} /> 
               <Route path="*" element={<Error />} />
             </Route>
           </Routes>

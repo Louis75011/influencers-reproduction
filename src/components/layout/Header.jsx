@@ -1,6 +1,10 @@
-import { useNavigate } from "react-router-dom";
-import "../../styles/layout/Header.css";
+import { Link, useNavigate } from "react-router-dom";
+import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
+import { RiSuitcaseLine } from "react-icons/ri";
+import { TbUserCircle } from "react-icons/tb";
 import NavBar from "../containers/NavBar";
+import "../../styles/layout/Header.css";
+import NavBarItems from "../containers/NavBarItems";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -22,6 +26,10 @@ export default function Header() {
 
       <div className="mobile">
         <NavBar />
+        {/* NavBar fixed */}
+        <div className="mobile-nav-holder">
+          <NavBarItems />
+        </div>
       </div>
     </header>
   );

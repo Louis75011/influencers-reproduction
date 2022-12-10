@@ -86,5 +86,6 @@ footer {
     .down-menu {
         flex-direction: column-reverse;
         align-items: baseline;
+        padding-bottom: 6rem;
     }
 }
