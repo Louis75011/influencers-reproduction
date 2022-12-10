@@ -1,0 +1,57 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    color: #222;
+    padding: 1rem 0;
+}
+
+.container-title {
+    display: flex;
+    position: relative;
+    margin-right: 1.2rem;
+}
+
+.container-title h1 {
+    font-size: 22px;
+}
+
+.container-title img {
+    position: absolute;
+    left: 89px;
+    top: 5px;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.navbar-links a {
+    color: #222;
+    font-weight: 600;
+}
+
+.navbar-links a:hover {
+    transition-duration: 0.3s;
+    opacity: 0.7;
+}
+
+.mobile {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .dekstop {
+        display: none;
+    }
+
+    .mobile {
+        display: flex;
+    }
+
+    .navbar-links a {
+        opacity: 0;
+    }
+}

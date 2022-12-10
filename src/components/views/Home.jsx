@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../layout/Footer";
+import "../../styles/views/Home.css";
 
 export default function Home() {
   const navigate = useNavigate();
 
   return (
     <main>
-      <hr></hr>
-      <div>
-        <p>Find and Hire Influencers in Seconds</p>
+      <div className="text-center">
+        <p className="text-gradient">Find and Hire Influencers in Seconds</p>
         <p>
           Find Instagram, TikTok, and YouTube influencers to create unique
           content for your brand
@@ -176,7 +176,6 @@ export default function Home() {
         <button>Search Influencers</button>
         {/* <img src="" alt="" /> */}
       </div>
-      <hr></hr>
       <div onClick={() => navigate("/product")}>Product</div>
       <Footer />
     </main>
