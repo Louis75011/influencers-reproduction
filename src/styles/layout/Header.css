@@ -5,8 +5,10 @@ header {
     font-family: 'Inter', sans-serif;
     color: #222;
     padding: 1rem 0;
+    width: 100%;
 }
 
+/* + NavBar & NavBarItems css */
 .container-title {
     display: flex;
     position: relative;
@@ -15,6 +17,11 @@ header {
 
 .container-title h1 {
     font-size: 22px;
+    width: 121px;
+    height: auto;
+    max-height: 35px;
+    opacity: 0.95;
+    letter-spacing: -0.5px;
 }
 
 .container-title img {
@@ -30,7 +37,13 @@ header {
 
 .navbar-links a {
     color: #222;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 88%;
+    transition-duration: 0.3s;
     font-weight: 600;
+    /* margin-left: 38px; */
+    /* position: relative; */
 }
 
 .navbar-links a:hover {
@@ -61,7 +74,7 @@ header {
         left: 0;
         z-index: 100;
         background-color: white;
-        border-top: 1px solid rgb(221,221,221);
+        border-top: 1px solid rgb(221, 221, 221);
     }
 
     .nav-item {
@@ -72,7 +85,7 @@ header {
         width: 100%;
         color: gray;
     }
-    
+
     .nav-icon {
         font-size: 34px;
         opacity: 0.5;

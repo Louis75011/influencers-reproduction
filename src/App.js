@@ -18,7 +18,7 @@ export default function App() {
             <Route element={<Layout />}>
               <Route index path="/" element={<Home />} />
                <Route path="/product" element={<Product />} />
-              <Route path="/explore" element={<Explore />} />
+              <Route path="/influencers" element={<Explore />} />
               <Route path="/work" element={<Work />} />
               <Route path="/login" element={<Login />} /> 
               <Route path="/creator" element={<JoinCreator />} /> 

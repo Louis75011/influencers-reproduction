@@ -1,0 +1,150 @@
+.search-form-holder {
+  width: 65%;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 1rem;
+  border-radius: 4rem;
+  background: white;
+  box-shadow: 1px 1px 1px 1px rgb(236, 236, 236);
+}
+
+.search-holder {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  /* box-shadow: 1px 1px 1px 1px black; */
+  /* padding-left: 22px; */
+}
+
+.search-img {
+  width: 18px;
+}
+
+
+.filter-title {
+  font-weight: 600;
+  font-size: 80%;
+}
+
+.filter-seperator {
+  border-right: 1px solid #e6e6e6;
+  height: 36px;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 14px 0 14px 18px;
+  border-radius: 30px;
+  position: relative;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 14px 0 14px 18px;
+  border-radius: 30px;
+  position: relative;
+}
+
+.filter-section:first-child {
+  padding-left: 22px;
+}
+
+.filter-placeholder {
+  margin-top: 4px;
+  color: var(--lightGray);
+  font-size: 86%;
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #222;
+  color: white;
+  border-radius: 50px;
+  padding: 14px 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-right: 12px;
+  font-family: inherit;
+  transition-duration: 0.3s;
+}
+
+.filter-search-input {
+  border: none;
+}
+
+.filter-section {
+  align-items: start;
+}
+
+.filter-placeholder {
+  margin-top: 4px;
+  color: rgb(151, 163, 197);
+  font-size: 86%;
+}
+
+input {
+  width: 200px;
+}
+
+input::placeholder {
+  margin-top: 4px;
+  color: rgb(151, 163, 197);
+  font-size: 86%;
+}
+
+@media only screen and (max-width: 800px) {
+  .search-form-holder {
+    width: 90%;
+  }
+
+  .search-holder {
+    flex-direction: column;
+    border-radius: 40px;
+    padding: 0 12px 12px 12px;
+}
+
+.filter-section {
+  position: relative;
+  width: 100%;
+  margin: 8px 0 0 0;
+  padding: 8px 0 8px 22px !important;
+}
+
+.filter-dropdown-holder {
+  width: calc(100% - 28px);
+  max-height: 200px;
+}
+
+.filter-seperator {
+  border-right: none;
+  border-bottom: 1px solid #e6e6e6;
+  height: 8px;
+  width: 100%;
+}
+
+.filter-section {
+  position: relative;
+  width: 100%;
+  margin: 8px 0 0 0;
+  padding: 8px 0 8px 22px !important;
+}
+
+.search-btn {
+  width: 100%;
+  padding: 16px 0;
+  margin: 4% 0 0 0;
+}
+
+
+}

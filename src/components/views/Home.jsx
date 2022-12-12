@@ -1,10 +1,12 @@
-import { useNavigate } from "react-router-dom";
 import Footer from "../layout/Footer";
+import ProfileListing from "../containers/ProfileListing";
+import FeatureHolder from "../containers/FeatureHolder";
+import SearchForm from "../containers/SearchForm";
+import WorksStep from "../containers/WorksStep";
+import FindInfluencers from "../containers/FindInfluencers";
 import "../../styles/views/Home.css";
 
 export default function Home() {
-  const navigate = useNavigate();
-
   return (
     <main>
       <div className="home-container">
@@ -15,169 +17,157 @@ export default function Home() {
           Find Instagram, TikTok, and YouTube influencers to create unique
           content for your brand
         </p>
+        <SearchForm />
+      </div>
+
+      <div className="sections-holder">
+        <ProfileListing
+          title="Featured"
+          subtitle="Hire top influencers across all platforms"
+        />
+        <ProfileListing
+          title="Instagram"
+          subtitle="Hire Instagram influencers"
+        />
+        <ProfileListing title="TikTok" subtitle="Hire TikTok influencers" />
+
         <div>
-          <select name="" id=""></select>
-          <label htmlFor="">Categorie</label>
-          <input type="text" placeholder="Tag" />
-          <button>Search</button>
+          <h3>Categories</h3>
+          <div className="container-product-scrolling"></div>
         </div>
-      </div>
 
-      <div>
-        <h3>Featured</h3>
-        <p>Hire top influencers across all platforms</p>
-        {/* See All */}
-        <div className="container-product"></div>
-      </div>
-
-      <div>
-        <h3>Instagram</h3>
-        <p>Hire Instagram influencers</p>
-        <div className="container-product"></div>
-      </div>
-
-      <div>
-        <h3>TikTok</h3>
-        <p>Hire TikTok influencers</p>
-        <div className="container-product"></div>
-      </div>
-
-      <div>
-        <h3>Categories</h3>
-        <p>Hire TikTok influencers</p>
-        <div className="container-product"></div>
-      </div>
-
-      <div>
-        <p>As seen in</p>
         <div>
-          <img
-            src={process.env.PUBLIC_URL + "/assets/buzzfeed.svg"}
-            height="50px"
-            alt="icon, brand"
-          />
-          <img
-            src={process.env.PUBLIC_URL + "/assets/bloomberg.svg"}
-            height="50px"
-            alt="icon, brand"
-          />
-          <img
-            src={process.env.PUBLIC_URL + "/assets/nyt.svg"}
-            height="50px"
-            alt="icon, brand"
-          />
-          <img
-            src={process.env.PUBLIC_URL + "/assets/yahoo.svg"}
-            height="50px"
-            alt="icon, brand"
-          />
-          <img
-            src={process.env.PUBLIC_URL + "/assets/shopify.svg"}
-            height="50px"
-            alt="icon, brand"
-          />
+          <div className="logo-title">As seen in</div>
+          <div className="logo-holder">
+            <img
+              className="logo-img"
+              src={process.env.PUBLIC_URL + "/assets/companies/buzzfeed.svg"}
+              alt="icon, brand"
+            />
+            <img
+              className="logo-img"
+              src={process.env.PUBLIC_URL + "/assets/companies/bloomberg.svg"}
+              alt="icon, brand"
+            />
+            <img
+              className="logo-img"
+              src={process.env.PUBLIC_URL + "/assets/companies/nyt.svg"}
+              alt="icon, brand"
+            />
+            <img
+              className="logo-img"
+              src={process.env.PUBLIC_URL + "/assets/companies/yahoo.svg"}
+              alt="icon, brand"
+            />
+            <img
+              className="logo-img"
+              src={process.env.PUBLIC_URL + "/assets/companies/shopify.svg"}
+              alt="icon, brand"
+            />
+          </div>
         </div>
-      </div>
 
-      <div>
-        <h3>How Collabstr Works</h3>
-        <p>Everything you need to run your influencer campaigns, and more.</p>
-        <div className="container-product"></div>
-      </div>
-
-      <div>
-        <div>
-          {/* icon */}
-          <p>No Upfront Cost</p>
-          <p>
-            Search influencers for free. No subscriptions, contracts or hidden
-            fees.
+        <div className="row-holder">
+          <h3 className="row-title">How Collabstr Works</h3>
+          <p className="row-subtitle">
+            Everything you need to run your influencer campaigns, and more.
           </p>
+          <WorksStep />
         </div>
-        <div>
-          {/* icon */}
-          <p>Vetted Influencers</p>
-          <p>
-            Every influencer is vetted by us. Always receive high-quality,
-            professional content.
-          </p>
+
+        <div className="row-holder">
+          <div className="features-holder">
+            <FeatureHolder
+              image={
+                process.env.PUBLIC_URL + "/assets/icons-features/01-money.svg"
+              }
+              title="No Upfront Cost"
+              text="Search influencers for free. No subscriptions, contracts or
+                hidden fees."
+            />
+            <FeatureHolder
+              image={
+                process.env.PUBLIC_URL + "/assets/icons-features/02-check.svg"
+              }
+              title="Vetted Influencers"
+              text="Every influencer is vetted by us. Always receive high-quality,
+                professional content."
+            />
+            <FeatureHolder
+              image={
+                process.env.PUBLIC_URL + "/assets/icons-features/03-chat.svg"
+              }
+              title="Instant Chat"
+              text="Instantly chat with influencers and stay in touch throughout the
+                whole transaction."
+            />
+            <FeatureHolder
+              image={
+                process.env.PUBLIC_URL + "/assets/icons-features/04-secure.svg"
+              }
+              title="Secure Purchases"
+              text="Your money is held safely until you approve the influencer’s
+                work."
+            />
+          </div>
         </div>
-        <div>
-          {/* icon */}
-          <p>Instant Chat</p>
-          <p>
-            Instantly chat with influencers and stay in touch throughout the
-            whole transaction.
-          </p>
+
+        <div className="row-holder">
+          <h2 className="row-title">Trusted by 20,000+ Brands</h2>
+          <h3 className="row-subtitle">
+            View collaborations from brands like Wealthsimple, ClickUp, Deezer,
+            and more.
+          </h3>
+          <img
+            src={process.env.PUBLIC_URL + "assets/blocs/test_influencers.png"}
+            width="800px"
+            alt=""
+          />
+
+          <div className="listing-row"></div>
+          <div className="logo-holder">
+            <img
+              src={
+                process.env.PUBLIC_URL + "/assets/companies/wealthsimple.svg"
+              }
+              className="logo-img"
+              alt="icon, brand"
+            />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/companies/clickup.svg"}
+              className="logo-img"
+              alt="icon, brand"
+            />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/companies/hopper.svg"}
+              className="logo-img"
+              alt="icon, brand"
+            />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/companies/un.svg"}
+              className="logo-img"
+              alt="icon, brand"
+            />
+            <img
+              src={process.env.PUBLIC_URL + "/assets/companies/deezer.svg"}
+              className="logo-img"
+              alt="icon, brand"
+            />
+          </div>
         </div>
-        <div>
-          {/* icon */}
-          <p>Secure Purchases</p>
-          <p>
-            Your money is held safely until you approve the influencer’s work.
-          </p>
-        </div>
+
+        <ProfileListing title="YouTube" subtitle="Hire YouTube influencers" />
+        <ProfileListing
+          title="User Generated Content"
+          subtitle="Purchase high-quality UGC"
+        />
+
+        <div className="container-product-scrolling"></div>
+
+        <FindInfluencers />
+        {/* <div onClick={() => navigate("/product")}>Product</div> */}
       </div>
 
-      <div>
-        <h3>Trusted by 20,000+ Brands</h3>
-        <p>
-          View collaborations from brands like Wealthsimple, ClickUp, Deezer,
-          and more.
-        </p>
-        <div className="container-product"></div>
-      </div>
-
-      <div>
-        <p>As seen in</p>
-        <div>
-          <img
-            src={process.env.PUBLIC_URL + "/assets/wealthsimple.svg"}
-            height="50px"
-            alt="icon, brand"
-          />
-          <img
-            src={process.env.PUBLIC_URL + "/assets/clickup.svg"}
-            height="50px"
-            alt="icon, brand"
-          />
-          <img
-            src={process.env.PUBLIC_URL + "/assets/hopper.svg"}
-            height="50px"
-            alt="icon, brand"
-          />
-          <img
-            src={process.env.PUBLIC_URL + "/assets/un.svg"}
-            height="50px"
-            alt="icon, brand"
-          />
-          <img
-            src={process.env.PUBLIC_URL + "/assets/deezer.svg"}
-            height="50px"
-            alt="icon, brand"
-          />
-        </div>
-      </div>
-
-      <div>
-        <h3>YouTube</h3>
-        <p>Hire YouTube influencers</p>
-        <div className="container-product"></div>
-      </div>
-
-      <div>
-        <h3>User Generated Content</h3>
-        <p>Purchase high-quality UGC</p>
-        <div className="container-product"></div>
-      </div>
-
-      <div>
-        <p>Find and Hire Influencers</p>
-        <p>Search Instagram, TikTok, and YouTube influencers</p>
-        <button>Search Influencers</button>
-        {/* <img src="" alt="" /> */}
-      </div>
-      <div onClick={() => navigate("/product")}>Product</div>
       <Footer />
     </main>
   );

@@ -6,7 +6,7 @@ import { TbUserCircle } from "react-icons/tb";
 const navItems = [
   {
     explore: {
-      path: "/explore",
+      path: "/influencers",
       icon: <AiOutlineSearch className="nav-icon" />,
       name: "Explore",
     },
