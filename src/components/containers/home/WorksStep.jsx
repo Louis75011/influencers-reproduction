@@ -1,4 +1,4 @@
-import "../../styles/containers/WorksStep.css";
+import "../../../styles/containers/home/WorksStep.css";
 
 export default function WorksStep() {
   return (

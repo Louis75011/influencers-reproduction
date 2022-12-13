@@ -1,4 +1,4 @@
-import "../../styles/containers/FeatureHolder.css";
+import "../../../styles/containers/home/FeatureHolder.css";
 
 export default function FeatureHolder(props) {
   return (

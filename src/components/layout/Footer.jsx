@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AiFillInstagram, AiOutlineTwitter } from "react-icons/ai";
 import { FaTiktok } from "react-icons/fa";
 

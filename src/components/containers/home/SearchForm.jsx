@@ -1,4 +1,4 @@
-import "../../styles/containers/SearchForm.css";
+import "../../../styles/containers/home/SearchForm.css";
 
 export default function SearchForm() {
   return (

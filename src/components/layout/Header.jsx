@@ -1,10 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
-import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
-import { RiSuitcaseLine } from "react-icons/ri";
-import { TbUserCircle } from "react-icons/tb";
-import NavBar from "../containers/NavBar";
+import { useNavigate } from "react-router-dom";
+import NavBar from "../containers/header/NavBar";
+import NavBarItems from "../containers/header/NavBarItems";
 import "../../styles/layout/Header.css";
-import NavBarItems from "../containers/NavBarItems";
 
 export default function Header() {
   const navigate = useNavigate();

@@ -13,6 +13,7 @@ header {
     display: flex;
     position: relative;
     margin-right: 1.2rem;
+    cursor: pointer;
 }
 
 .container-title h1 {

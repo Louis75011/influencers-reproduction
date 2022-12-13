@@ -1,9 +1,10 @@
 import Footer from "../layout/Footer";
-import ProfileListing from "../containers/ProfileListing";
-import FeatureHolder from "../containers/FeatureHolder";
-import SearchForm from "../containers/SearchForm";
-import WorksStep from "../containers/WorksStep";
-import FindInfluencers from "../containers/FindInfluencers";
+import FeatureHolder from "../containers/home/FeatureHolder";
+import FindInfluencers from "../containers/home/FindInfluencers";
+import ProfileListing from "../containers/home/ProfileListing";
+import SearchForm from "../containers/home/SearchForm";
+import TrustedBrand from "../containers/home/TrustedBrand";
+import WorksStep from "../containers/home/WorksStep";
 import "../../styles/views/Home.css";
 
 export default function Home() {
@@ -118,13 +119,9 @@ export default function Home() {
             View collaborations from brands like Wealthsimple, ClickUp, Deezer,
             and more.
           </h3>
-          <img
-            src={process.env.PUBLIC_URL + "assets/blocs/test_influencers.png"}
-            width="800px"
-            alt=""
-          />
+          <TrustedBrand />
 
-          <div className="listing-row"></div>
+          {/* <div className="listing-row"></div> */}
           <div className="logo-holder">
             <img
               src={

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../../styles/containers/ProfileListing.css";
+import "../../../styles/containers/home/ProfileListing.css";
 
 export default function ProfileListing(props) {
   const navigate = useNavigate();

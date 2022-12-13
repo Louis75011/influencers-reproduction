@@ -1,4 +1,4 @@
-import "../../styles/containers/FindInfluencers.css";
+import "../../../styles/containers/home/FindInfluencers.css";
 
 export default function FindInfluencers() {
   return (
