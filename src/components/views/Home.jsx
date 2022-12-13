@@ -69,7 +69,9 @@ export default function Home() {
         </div>
 
         <div className="row-holder">
-          <h3 className="row-title">How Collabstr Works</h3>
+          <h3 className="row-title" id="how-it-works">
+            How Collabstr Works
+          </h3>
           <p className="row-subtitle">
             Everything you need to run your influencer campaigns, and more.
           </p>

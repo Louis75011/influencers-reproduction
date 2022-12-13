@@ -1,39 +1,39 @@
 .sections-holder {
-    margin: 3% auto;
-    width: 90%;
-    /* padding: 0 3.5rem; */
+  margin: 3% auto;
+  width: 90%;
+  /* padding: 0 3.5rem; */
 }
 
 .section-holder {
-    margin-bottom: 10%;
+  margin-bottom: 10%;
 }
 
 .section-title {
-    display: flex;
-    align-items: baseline;
-    font-size: 150%;
-    font-weight: 600;
-    margin: 0;
+  display: flex;
+  align-items: baseline;
+  font-size: 150%;
+  font-weight: 600;
+  margin: 0;
 }
 
 .section-subtitle {
-    display: flex;
-    align-items: center;
-    margin: 4px 0 28px 0;
-    font-size: 92%;
-    font-weight: 400;
-    color: gray;
+  display: flex;
+  align-items: center;
+  margin: 4px 0 28px 0;
+  font-size: 92%;
+  font-weight: 400;
+  color: gray;
 }
 
 .section-influencers {
-    color: #222;
-    margin-left: auto;
-    cursor: pointer;
-    font-weight: 600;
+  color: #222;
+  margin-left: auto;
+  cursor: pointer;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 800px) {
-    .sections-holder {
-        width: 95%;
-    }
+  .sections-holder {
+    width: 95%;
+  }
 }

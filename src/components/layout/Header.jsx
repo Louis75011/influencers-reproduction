@@ -22,7 +22,15 @@ export default function Header() {
       </div>
 
       <div className="mobile">
-        <NavBar />
+        <nav className="navbar-links">
+          {/* <Link to="/influencers">Explore</Link>
+      <Link to="/work">How It Works</Link>
+      <Link to="/login">Login</Link>
+      <Link to="/brand">Join as Brand</Link>
+      <Link className="text-gradient" to="/creator">
+        Join as Creator
+      </Link> */}
+        </nav>
         {/* NavBar fixed */}
         <div className="mobile-nav-holder">
           <NavBarItems />

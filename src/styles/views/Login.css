@@ -1,78 +1,77 @@
 #content {
-    margin: 0 auto 15% auto;
+  margin: 0 auto 15% auto;
 }
 
 .form-holder,
 .login-form {
-    width: 90%;
-    min-width: initial;
-    margin: 8% auto;
+  width: 90%;
+  min-width: initial;
+  margin: 8% auto;
 }
 
 .form-title {
-    font-size: 185%;
-    margin: 0 auto 7% auto;
-    font-weight: 600;
+  font-size: 185%;
+  margin: 0 auto 7% auto;
+  font-weight: 600;
 }
 
 .form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
 }
 
 .seperator {
-    text-align: center;
-    border-bottom: 1px solid #222;
-    margin: 8% 0;
-    /* line-height: 0.1em; */
+  text-align: center;
+  border-bottom: 1px solid #222;
+  margin: 8% 0;
+  /* line-height: 0.1em; */
 }
 
 .seperator span {
-    background-color: white;
-    color: #222;
-    padding: 0 12px;
+  background-color: white;
+  color: #222;
+  padding: 0 12px;
 }
 
 .input {
-    width: calc(100% - 10px);
-    margin-bottom: 4%;
-    font-size: 100%;
-    min-height: 50px;
+  width: calc(100% - 10px);
+  margin-bottom: 4%;
+  font-size: 100%;
+  min-height: 50px;
 
-    font-family: 'Inter', sans-serif;
-    border-radius: 8px;
-    background-color: white;
-    border: 1px solid rgba(191, 203, 218, .6);
-    transition-duration: 0.3s;
-    width: calc(100% - 10px);
-    margin-bottom: 4%;
+  font-family: "Inter", sans-serif;
+  border-radius: 8px;
+  background-color: white;
+  border: 1px solid rgba(191, 203, 218, 0.6);
+  transition-duration: 0.3s;
+  width: calc(100% - 10px);
+  margin-bottom: 4%;
 }
 
 .submit-button {
-    display: block;
-    text-align: center;
-    font-weight: 600;
-    border: none;
-    font-size: 95%;
-    border-radius: 8px;
-    box-shadow: 0 2px 16px 0 rgba(120, 120, 170, 0.15);
-    cursor: pointer;
-    transition-duration: 0.3s;
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  border: none;
+  font-size: 95%;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px 0 rgba(120, 120, 170, 0.15);
+  cursor: pointer;
+  transition-duration: 0.3s;
 
-    background-color: #222;
-    color: white;
-    width: 100%;
-    padding: 15px;
-    margin: 0 auto 4% auto;
+  background-color: #222;
+  color: white;
+  width: 100%;
+  padding: 15px;
+  margin: 0 auto 4% auto;
 }
 
 .forgot {
-    margin-top: 15px;
-    color: rgb(151, 163, 197);
-    ;
-    font-size: 85%;
-    cursor: pointer;
+  margin-top: 15px;
+  color: rgb(151, 163, 197);
+  font-size: 85%;
+  cursor: pointer;
 }

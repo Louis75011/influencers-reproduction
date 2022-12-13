@@ -1,6 +1,19 @@
+// import firebase from 'firebase';
+import { useContext, useEffect } from "react";
+import { FirebaseContext } from "../../services/firebase";
+import { useFirebaseUsers } from "../../services/firebase/users";
 import "../../styles/views/Login.css";
 
 export default function Login() {
+  const { auth } = useContext(FirebaseContext);
+  const { signUpBrand, signUpCreator } = useFirebaseUsers();
+
+  useEffect(() => {
+    signUpCreator("BOB", "louis@gmail.com", "123456");
+    signUpBrand("BOBO", "Pomme", "louis2@gmail.com", "12345678");
+    // console.log(auth);
+  }, [auth]);
+
   return (
     <div id="content">
       <div className="form-holder login-form">

@@ -49,7 +49,7 @@ export default function SearchForm() {
               <option value="youtube">YouTube</option>
             </select> */}
 
-            <input type="hidden" name="p" value="" />
+            <input type="hidden" name="p" />
           </div>
 
           <div className="filter-seperator"></div>
@@ -68,7 +68,7 @@ export default function SearchForm() {
                 name="c"
                 type="text"
                 placeholder="Enter keywords, niches or categories"
-                value=""
+                // value=""
               />
             </div>
             <div className="filter-dropdown-holder category-dropdown-holder">

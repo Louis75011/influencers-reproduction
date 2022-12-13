@@ -1,49 +1,49 @@
 .features-holder {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: -7%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -7%;
 }
 
 .feature-holder {
-    margin: 0 auto;
-    flex: 0 21%;
-    padding: 25px 16px;
+  margin: 0 auto;
+  flex: 0 21%;
+  padding: 25px 16px;
 }
 
 .feature-title {
-    display: flex;
-    flex-direction: column;
-    font-weight: 600;
-    font-size: 135%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 135%;
 }
 
 .feature-img {
-    filter: brightness(0);
-    width: 21px;
-    margin-bottom: 18px;
+  filter: brightness(0);
+  width: 21px;
+  margin-bottom: 18px;
 }
 
 .feature-txt {
-    line-height: 1.4;
-    margin-top: 8px;
-    font-weight: 400;
-    font-size: 95%;
-    color: gray;
+  line-height: 1.4;
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 95%;
+  color: gray;
 }
 
 .row-holder {
-    margin: 10% auto;
+  margin: 10% auto;
 }
 
 .row-title {
-    font-weight: 600;
-    font-size: 165%;
-    margin: 0;
+  font-weight: 600;
+  font-size: 165%;
+  margin: 0;
 }
 
 .row-subtitle {
-    margin: 1% 0 2% 0;
-    color: gray;
-    font-size: 95%;
-    font-weight: 400;
+  margin: 1% 0 2% 0;
+  color: gray;
+  font-size: 95%;
+  font-weight: 400;
 }
