@@ -4,8 +4,8 @@ export default function Terms() {
   return (
     <div id="content">
       <div id="holder">
-        <h1 style={{textAlign: 'center'}}>Terms of Use</h1>
-        <h3 style={{textAlign: 'center'}}>
+        <h1 style={{ textAlign: "center" }}>Terms of Use</h1>
+        <h3 style={{ textAlign: "center" }}>
           Last Updated: <strong>December 1, 2021</strong>
         </h3>
         <h2>Agreement To Terms</h2>

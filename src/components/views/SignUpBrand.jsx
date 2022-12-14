@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useFirebaseUsers } from "../../services/firebase/users";
 import errorHandler from "../../services/firebase/error";
 import Footer from "../layout/Footer";
@@ -10,17 +10,23 @@ export default function SignupBrand() {
   const brandNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const foundUsRef = useRef(null);
+  const [formErrors, setFormErrors] = useState({});
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      console.log(fullNameRef.current.value);
-      await signUpBrand(
+      // console.log(foundUsRef.current.value);
+      const response = await signUpBrand(
         fullNameRef.current.value,
         brandNameRef.current.value,
         emailRef.current.value,
-        passwordRef.current.value
+        passwordRef.current.value,
+        foundUsRef.current.value
       );
+      console.log(response);
+      const { success, errors } = response;
+      setFormErrors(errors);
     } catch (error) {
       const msg = errorHandler(error);
       if (msg) {
@@ -46,7 +52,7 @@ export default function SignupBrand() {
         <div className="form-title">Create Your Account</div>
         <div className="form">
           <div className="social-login-holder">
-            <div className="social-login-btn-holder">
+            {/* <div className="social-login-btn-holder">
               <div
                 id="g_id_onload"
                 data-client_id="995959859074-ul46r76qmskr4n8q47f05khgj1kjas7e.apps.googleusercontent.com"
@@ -78,50 +84,75 @@ export default function SignupBrand() {
                   ></iframe>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="seperator">
               <span>or</span>
             </div>
           </div>
 
           <input
+            ref={fullNameRef}
             className="input"
             type="text"
             placeholder="Full Name"
             name="name"
             id="fullname"
-            ref={fullNameRef}
-            required=""
+            // minLength="2"
+            maxLength="255"
+            required
           />
+          {formErrors.fullName && (
+            <p style={{ margin: "0 0 17px 0", color: "red" }}>
+              {formErrors.fullName}
+            </p>
+          )}
           <input
+            ref={brandNameRef}
             className="input"
             type="text"
             placeholder="Brand Name"
             name="company"
-            ref={brandNameRef}
-            required=""
+            maxLength="255"
+            required
           />
+          {formErrors.brandName && (
+            <p style={{ margin: "0 0 17px 0", color: "red" }}>
+              {formErrors.brandName}
+            </p>
+          )}
           <input
+            ref={emailRef}
             className="input"
-            type="email"
+            // type="email"
             placeholder="Email"
             name="email"
             id="email"
-            ref={emailRef}
-            required=""
+            maxLength="255"
+            required
           />
+          {formErrors.email && (
+            <p style={{ margin: "0 0 17px 0", color: "red" }}>
+              {formErrors.email}
+            </p>
+          )}
           <input
+            ref={passwordRef}
             className="input"
             type="password"
             placeholder="Password"
             name="password"
             id="password"
-            ref={passwordRef}
             minLength="6"
-            required=""
+            maxLength="255"
+            required
           />
-          <select className="input" name="found_us" required="">
-            <option value="" disabled="" selected="" hidden="">
+          {formErrors.password && (
+            <p style={{ margin: "0 0 17px 0", color: "red" }}>
+              {formErrors.password}
+            </p>
+          )}
+          <select ref={foundUsRef} className="input" name="found_us" required>
+            <option value="" disabled="" hidden="">
               How did you hear about us?
             </option>
             <option value="Friend/Colleague">Friend/Colleague</option>
@@ -133,15 +164,20 @@ export default function SignupBrand() {
             <option value="Reddit">Reddit</option>
             <option value="Other">Other</option>
           </select>
-          <input type="hidden" name="ad_referrer" value="" />
-          <input type="hidden" name="social_login" />
+          {formErrors.foundUs && (
+            <p style={{ margin: "0 0 17px 0", color: "red" }}>
+              {formErrors.foundUs}
+            </p>
+          )}
+          {/* <input type="hidden" name="ad_referrer" value="" />
+          <input type="hidden" name="social_login" /> */}
           <button className="submit btn">Sign Up</button>
           <div className="login-signup">
-            By signing up, you agree to our <a href="/terms">Terms</a> and{" "}
+            By signing up, you agree to our <a href="/terms">Terms</a> and
             <a href="/privacy">Privacy Policy.</a>
           </div>
           <div className="login-forgot">
-            Already have an account?{" "}
+            Already have an account?
             <a className="login-btn" href="/login">
               Login
             </a>

@@ -11,6 +11,7 @@ import JoinBrand from "./components/views/JoinBrand";
 import SignupCreator from "./components/views/SignupCreator";
 import SignupBrand from "./components/views/SignupBrand";
 import Terms from "./components/views/Terms";
+import Privacy from "./components/views/Privacy";
 import Error from "./components/layout/Error";
 import "./App.css";
 
@@ -26,6 +27,7 @@ export default function App() {
             <Route path="/work" element={<Work />} />
             <Route path="/login" element={<Login />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
             <Route path="/creator" element={<JoinCreator />} />
             <Route path="/brand" element={<JoinBrand />} />
             <Route path="/creator-signup" element={<SignupCreator />} />

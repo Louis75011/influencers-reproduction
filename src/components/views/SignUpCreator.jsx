@@ -50,7 +50,7 @@ export default function SignupCreator() {
                 data-auto_prompt="false"
               ></div>
 
-              <div
+              {/* <div
                 className="g_id_signin"
                 data-shape="rectangular"
                 data-theme="filled_black"
@@ -71,7 +71,7 @@ export default function SignupCreator() {
                     // style="display: block; position: relative; top: 0px; left: 0px; height: 44px; width: 320px; border: 0px; margin: -2px -10px;"
                   ></iframe>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className="seperator">
               <span>or</span>
@@ -106,13 +106,8 @@ export default function SignupCreator() {
             minLength="6"
             required=""
           />
-          <select
-            className="input"
-            name="found_us"
-            defaultValue="Friend/Colleague"
-            required=""
-          >
-            <option value="" disabled="" selected="" hidden="">
+          <select className="input" name="found_us" required="">
+            <option value="" disabled="" hidden="">
               How did you hear about us?
             </option>
             <option value="Friend/Colleague">Friend/Colleague</option>
