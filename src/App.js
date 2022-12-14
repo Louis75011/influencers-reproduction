@@ -8,6 +8,8 @@ import Work from "./components/views/Work";
 import Login from "./components/views/Login";
 import JoinCreator from "./components/views/JoinCreator";
 import JoinBrand from "./components/views/JoinBrand";
+import SignUpCreator from "./components/views/SignUpCreator";
+import SignUpBrand from "./components/views/SignUpBrand";
 import Error from "./components/layout/Error";
 import "./App.css";
 
@@ -24,6 +26,8 @@ export default function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/creator" element={<JoinCreator />} />
             <Route path="/brand" element={<JoinBrand />} />
+            <Route path="/creator-signup" element={<SignUpCreator />} />
+            <Route path="/brand-signup" element={<SignUpBrand />} />
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>
