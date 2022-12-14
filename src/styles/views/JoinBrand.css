@@ -1,0 +1,14 @@
+.btn {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  border: none;
+  font-size: 95%;
+  font-family: inherit;
+  border-radius: 8px;
+  box-shadow: var(--lightBoxShadow);
+  text-decoration: none;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  position: relative;
+}

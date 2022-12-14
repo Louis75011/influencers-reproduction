@@ -11,6 +11,13 @@ a {
   cursor: pointer;
 }
 
+#content {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto 8% auto;
+  width: 88% !important;
+}
+
 .text-gradient {
   background: -webkit-linear-gradient(
     90deg,

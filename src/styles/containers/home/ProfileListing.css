@@ -37,3 +37,63 @@
     width: 95%;
   }
 }
+
+/* Flyers */
+.listing-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1%;
+}
+
+.featured-profile-listing-holder {
+  width: 24%;
+  min-width: 230px;
+}
+
+.profile-listing-holder,
+.featured-profile-listing-holder {
+  cursor: pointer;
+  position: relative;
+}
+
+.link-spanner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.profile-listing-img-holder {
+  width: 100%;
+  height: 320px;
+  position: relative;
+  border-radius: 9px;
+  background-color: black;
+  overflow: hidden;
+}
+
+.profile-listing-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2% 0;
+}
+
+.profile-listing-title {
+  font-size: 90%;
+  font-weight: 300;
+  margin: 0;
+}
+/* 
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--black);
+} */

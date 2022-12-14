@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
 export default function JoinCreator() {
   return (
@@ -10,9 +10,9 @@ export default function JoinCreator() {
           TikTok, and YouTube brand deals
         </h2>
 
-        <a href="/creator-signup" class="signup-btn btn">
+        <Link to="/creator-signup" className="signup-btn btn">
           Sign Up
-        </a>
+        </Link>
 
         <div className="username-holder">
           <div className="username-domain">collabstr.com/</div>

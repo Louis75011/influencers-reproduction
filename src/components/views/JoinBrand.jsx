@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function JoinBrand() {
   return (
     <div id="content">
@@ -10,9 +12,9 @@ export default function JoinBrand() {
           Find influencers, run campaigns, and get unique content for your brand
           in seconds
         </h2>
-        <a href="/brand-signup" className="signup-btn btn">
+        <Link to="/brand-signup" className="signup-btn btn">
           Sign Up
-        </a>
+        </Link>
       </div>
 
       <div className="sections-holder">
