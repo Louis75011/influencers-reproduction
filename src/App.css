@@ -18,6 +18,15 @@ a {
   width: 88% !important;
 }
 
+.signup-btn {
+  background-color: #222;
+  color: white;
+  width: 220px;
+  padding: 20px;
+  margin: 0 18px;
+  font-size: 105% !important;
+}
+
 .text-gradient {
   background: -webkit-linear-gradient(
     90deg,

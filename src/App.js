@@ -10,6 +10,7 @@ import JoinCreator from "./components/views/JoinCreator";
 import JoinBrand from "./components/views/JoinBrand";
 import SignupCreator from "./components/views/SignupCreator";
 import SignupBrand from "./components/views/SignupBrand";
+import Terms from "./components/views/Terms";
 import Error from "./components/layout/Error";
 import "./App.css";
 
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/influencers" element={<Explore />} />
             <Route path="/work" element={<Work />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="/creator" element={<JoinCreator />} />
             <Route path="/brand" element={<JoinBrand />} />
             <Route path="/creator-signup" element={<SignupCreator />} />
