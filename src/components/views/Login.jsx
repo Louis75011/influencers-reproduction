@@ -1,24 +1,58 @@
-// import firebase from 'firebase';
-import { useContext, useEffect } from "react";
-import { FirebaseContext } from "../../services/firebase";
-import { useFirebaseUsers } from "../../services/firebase/users";
+import { useRef, useState } from "react";
+import { useSignInEmail } from "../../services/firebase/users/common/signInEmail";
+import { useSignInGoogle } from "../../services/firebase/users/common/signInGoogle";
+import errorHandler from "../../services/firebase/error";
 import "../../styles/views/Login.css";
 
 export default function Login() {
-  const { auth } = useContext(FirebaseContext);
-  // const { signUpBrand, signUpCreator } = useFirebaseUsers();
+  const signInGoogle = useSignInGoogle();
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const [formErrors, setFormErrors] = useState({});
+  const signInEmail = useSignInEmail();
 
-  useEffect(() => {
-    // signUpCreator("BOB", "louis@gmail.com", "123456");
-    // signUpBrand("BOBO", "Pomme", "louis2@gmail.com", "12345678");
-    // console.log(auth);
-  }, [auth]);
+  async function handleSignInGoogle(e) {
+    e.preventDefault();
+    try {
+      const response = await signInGoogle();
+      console.log(response);
+      return response;
+    } catch (error) {
+      const msg = errorHandler(error);
+      if (msg) {
+        alert(msg);
+      } else {
+        console.log(error);
+      }
+    }
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const response = await signInEmail(
+        emailRef.current.value,
+        passwordRef.current.value
+      );
+      const { success, errors } = response;
+      setFormErrors(errors ?? {});
+
+      console.log(response);
+    } catch (error) {
+      const msg = errorHandler(error);
+      if (msg) {
+        alert(msg);
+      } else {
+        console.log(error);
+      }
+    }
+  }
 
   return (
     <div id="content">
       <div className="form-holder login-form">
         <h1 className="form-title">Welcome Back</h1>
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <input
             type="hidden"
             name="csrfmiddlewaretoken"
@@ -59,7 +93,7 @@ export default function Login() {
               </div>
             </div>
 
-            <p>Se connecter à Google</p>
+            <button onClick={handleSignInGoogle}>Se connecter à Google</button>
 
             <div className="seperator">
               <span>or</span>
@@ -70,15 +104,27 @@ export default function Login() {
             type="email"
             placeholder="Email"
             name="email"
-            required=""
+            ref={emailRef}
+            // required
           />
+          {formErrors.email && (
+            <p style={{ margin: "0 0 17px 0", color: "crimson" }}>
+              {formErrors.email}
+            </p>
+          )}
           <input
             className="input"
             type="password"
             placeholder="Password"
             name="password"
-            required=""
+            ref={passwordRef}
+            // required
           />
+          {formErrors.password && (
+            <p style={{ margin: "0 0 17px 0", color: "crimson" }}>
+              {formErrors.password}
+            </p>
+          )}
           <button className="submit-button">Login</button>
           <div className="login-forgot forgot">Forgot password?</div>
         </form>

@@ -1,12 +1,15 @@
 import { useRef, useState } from "react";
-import { useFirebaseUsers } from "../../services/firebase/users";
 import errorHandler from "../../services/firebase/error";
 import Footer from "../layout/Footer";
+import { useSignUpBrandEmail } from "../../services/firebase/users/brand/signUpEmail";
+import { useSignUpBrandGoogle } from "../../services/firebase/users/brand/signUpGoogle";
 import "../../styles/views/SignupBrand.css";
 
 export default function SignupBrand() {
-  const { signUpBrandEmail, signUpBrandGoogleStart, signUpBrandGoogleEnd } =
-    useFirebaseUsers();
+  const { signUpBrandGoogleStart, signUpBrandGoogleEnd } =
+    useSignUpBrandGoogle();
+  const signUpEmail = useSignUpBrandEmail();
+
   const fullNameRef = useRef(null);
   const brandNameRef = useRef(null);
   const emailRef = useRef(null);
@@ -19,7 +22,7 @@ export default function SignupBrand() {
     e.preventDefault();
     try {
       if (!googleUser) {
-        const response = await signUpBrandEmail(
+        const response = await signUpEmail(
           fullNameRef.current.value,
           brandNameRef.current.value,
           emailRef.current.value,

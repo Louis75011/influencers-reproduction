@@ -4,11 +4,11 @@ import { getAnalytics } from "firebase/analytics";
 import { createContext } from "react";
 import {
   getAuth,
-  GoogleAuthProvider,
-  signInWithEmailAndPassword,
+  // GoogleAuthProvider,
+  // signInWithEmailAndPassword,
 } from "firebase/auth";
 import { getDatabase, set, ref } from "firebase/database";
-// ​​  signInWithPopup,  // ​​  createUserWithEmailAndPassword,  // ​​  sendPasswordResetEmail,  // ​​  signOut,
+// ​​  signInWithPopup,  // ​​  createUserWithEmailAndPassword,  // ​sendPasswordResetEmail,  // ​​  signOut,
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -29,7 +29,6 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getDatabase(app);
 
