@@ -5,28 +5,60 @@ import Footer from "../layout/Footer";
 import "../../styles/views/SignupBrand.css";
 
 export default function SignupBrand() {
-  const { signUpBrand } = useFirebaseUsers();
+  const { signUpBrand, signUpBrandGoogle, signInBrandGoogle } =
+    useFirebaseUsers();
   const fullNameRef = useRef(null);
   const brandNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const foundUsRef = useRef(null);
   const [formErrors, setFormErrors] = useState({});
+  const [googleUser, setGoogleUser] = useState(null);
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      // console.log(foundUsRef.current.value);
-      const response = await signUpBrand(
-        fullNameRef.current.value,
-        brandNameRef.current.value,
-        emailRef.current.value,
-        passwordRef.current.value,
-        foundUsRef.current.value
-      );
-      console.log(response);
-      const { success, errors } = response;
-      setFormErrors(errors);
+      if (!googleUser) {
+        const response = await signUpBrand(
+          fullNameRef.current.value,
+          brandNameRef.current.value,
+          emailRef.current.value,
+          passwordRef.current.value,
+          foundUsRef.current.value
+        );
+        const { success, errors } = response;
+        setFormErrors(errors);
+      } else {
+        const response = await signUpBrandGoogle(
+          googleUser,
+          brandNameRef.current.value,
+          foundUsRef.current.value
+        );
+        const { success, errors } = response;
+        setFormErrors(errors);
+        console.log(response);
+      }
+    } catch (error) {
+      const msg = errorHandler(error);
+      if (msg) {
+        alert(msg);
+      } else {
+        console.log(error);
+      }
+    }
+  }
+
+  async function handleSignInGoogle(e) {
+    e.preventDefault();
+    try {
+      const user = await signInBrandGoogle();
+      console.log(user);
+      if (user) {
+        setGoogleUser(user);
+      } else {
+        // TODO Redirection après connexion de l'utilisateur existant
+        alert("Email already exists, please login");
+      }
     } catch (error) {
       const msg = errorHandler(error);
       if (msg) {
@@ -52,6 +84,7 @@ export default function SignupBrand() {
         <div className="form-title">Create Your Account</div>
         <div className="form">
           <div className="social-login-holder">
+            <button onClick={handleSignInGoogle}>S'inscrire avec Google</button>
             {/* <div className="social-login-btn-holder">
               <div
                 id="g_id_onload"
@@ -90,22 +123,27 @@ export default function SignupBrand() {
             </div>
           </div>
 
-          <input
-            ref={fullNameRef}
-            className="input"
-            type="text"
-            placeholder="Full Name"
-            name="name"
-            id="fullname"
-            // minLength="2"
-            maxLength="255"
-            required
-          />
-          {formErrors.fullName && (
-            <p style={{ margin: "0 0 17px 0", color: "red" }}>
-              {formErrors.fullName}
-            </p>
+          {!googleUser && (
+            <>
+              <input
+                ref={fullNameRef}
+                className="input"
+                type="text"
+                placeholder="Full Name"
+                name="name"
+                id="fullname"
+                // minLength="2"
+                maxLength="255"
+                required
+              />
+              {formErrors.fullName && (
+                <p style={{ margin: "0 0 17px 0", color: "crimson" }}>
+                  {formErrors.fullName}
+                </p>
+              )}
+            </>
           )}
+
           <input
             ref={brandNameRef}
             className="input"
@@ -116,41 +154,52 @@ export default function SignupBrand() {
             required
           />
           {formErrors.brandName && (
-            <p style={{ margin: "0 0 17px 0", color: "red" }}>
+            <p style={{ margin: "0 0 17px 0", color: "crimson" }}>
               {formErrors.brandName}
             </p>
           )}
-          <input
-            ref={emailRef}
-            className="input"
-            // type="email"
-            placeholder="Email"
-            name="email"
-            id="email"
-            maxLength="255"
-            required
-          />
-          {formErrors.email && (
-            <p style={{ margin: "0 0 17px 0", color: "red" }}>
-              {formErrors.email}
-            </p>
+
+          {!googleUser && (
+            <>
+              <input
+                ref={emailRef}
+                className="input"
+                // type="email"
+                placeholder="Email"
+                name="email"
+                id="email"
+                maxLength="255"
+                required
+              />
+              {formErrors.email && (
+                <p style={{ margin: "0 0 17px 0", color: "crimson" }}>
+                  {formErrors.email}
+                </p>
+              )}
+            </>
           )}
-          <input
-            ref={passwordRef}
-            className="input"
-            type="password"
-            placeholder="Password"
-            name="password"
-            id="password"
-            minLength="6"
-            maxLength="255"
-            required
-          />
-          {formErrors.password && (
-            <p style={{ margin: "0 0 17px 0", color: "red" }}>
-              {formErrors.password}
-            </p>
+
+          {!googleUser && (
+            <>
+              <input
+                ref={passwordRef}
+                className="input"
+                type="password"
+                placeholder="Password"
+                name="password"
+                id="password"
+                minLength="6"
+                maxLength="255"
+                required
+              />
+              {formErrors.password && (
+                <p style={{ margin: "0 0 17px 0", color: "crimson" }}>
+                  {formErrors.password}
+                </p>
+              )}
+            </>
           )}
+
           <select ref={foundUsRef} className="input" name="found_us" required>
             <option value="" disabled="" hidden="">
               How did you hear about us?
@@ -165,7 +214,7 @@ export default function SignupBrand() {
             <option value="Other">Other</option>
           </select>
           {formErrors.foundUs && (
-            <p style={{ margin: "0 0 17px 0", color: "red" }}>
+            <p style={{ margin: "0 0 17px 0", color: "crimson" }}>
               {formErrors.foundUs}
             </p>
           )}

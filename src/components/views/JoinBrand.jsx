@@ -4,7 +4,7 @@ export default function JoinBrand() {
   return (
     <div id="content">
       <div className="hero-holder">
-        <h1 className="hero-title">
+        <h1 className="hero-title text-gradient">
           The Easy Way to Generate{" "}
           <span className="change-txt title-gradient">Testimonials</span>
         </h1>
@@ -52,7 +52,7 @@ export default function JoinBrand() {
           />
         </div>
 
-        <div className="example-row-holder row-holder">
+        <div className="example-row-holder row-holder d-flex">
           <div className="example-steps-holder">
             <h2 className="example-row-title">
               Find and Hire Influencers in Seconds on the Marketplace

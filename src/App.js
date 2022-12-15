@@ -22,6 +22,7 @@ export default function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route index path="/" element={<Home />} />
+            {/* Pages */}
             <Route path="/product" element={<Product />} />
             <Route path="/influencers" element={<Explore />} />
             <Route path="/work" element={<Work />} />
@@ -32,6 +33,8 @@ export default function App() {
             <Route path="/brand" element={<JoinBrand />} />
             <Route path="/creator-signup" element={<SignupCreator />} />
             <Route path="/brand-signup" element={<SignupBrand />} />
+            {/* Connected's pages */}
+
             <Route path="*" element={<Error />} />
           </Route>
         </Routes>

@@ -12,3 +12,82 @@
   transition-duration: 0.3s;
   position: relative;
 }
+
+.username-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 55%;
+  border-radius: 50px;
+  box-shadow: var(--mediumBoxShadow);
+  padding: 10px 16px;
+  transition-duration: 0.3s;
+  border: 1px solid #222;
+}
+
+.username-domain {
+  font-size: 108%;
+  color: #333;
+  font-weight: 500;
+}
+
+.username-input-holder {
+  width: 100%;
+}
+
+.username-input {
+  height: 40px;
+  border: none;
+  width: 100%;
+  font-size: 108%;
+  font-family: "Inter", sans-serif;
+}
+
+.username-btn {
+  background-color: var(--black);
+  color: white;
+  border-radius: 50px;
+  padding: 14px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hero-img-holder {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  box-shadow: var(--lightBoxShadow);
+  border-radius: 26px;
+}
+
+.hero-vid {
+  border-radius: 22px;
+  width: 285px;
+  display: block;
+}
+
+.ig-img {
+  top: 70px;
+  right: -50px;
+}
+
+.platform-img {
+  position: absolute;
+  width: 60px;
+  box-shadow: var(--darkBoxShadow);
+  border-radius: 12px;
+}
+
+.tiktok-img {
+  bottom: 230px;
+  left: -50px;
+}
+
+.youtube-img {
+  bottom: 70px;
+  right: -50px;
+}
+
+video {
+  object-fit: contain;
+}

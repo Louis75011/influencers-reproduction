@@ -12,3 +12,94 @@
   transition-duration: 0.3s;
   position: relative;
 }
+
+/* .hero-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 6% 0;
+} */
+
+.logo-title {
+  text-align: center;
+  font-size: 92%;
+  margin-bottom: -2.5%;
+  color: #ababab;
+}
+
+.logo-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 4% 0 -2% 0;
+  opacity: 0.7;
+}
+
+.example-row-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.row-holder {
+  margin: 10% auto;
+}
+
+.example-steps-holder {
+  width: 42%;
+}
+
+.example-row-title {
+  font-size: 190%;
+  font-weight: 600;
+  margin: 0 0 11% 0;
+}
+
+.example-step {
+  margin: 8% 0;
+}
+
+.example-step-title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 125%;
+}
+
+.example-step-txt {
+  line-height: 1.4;
+  font-size: 95%;
+  margin-top: 2%;
+  color: gray;
+  font-weight: 400;
+}
+
+.example-img-holder {
+  width: 50%;
+}
+
+div.sections-holder
+  > div.example-row-holder.row-holder.d-flex
+  > div.example-img-holder
+  > picture
+  > img {
+  width: 50%;
+}
+
+.example-img {
+  width: 100%;
+  filter: drop-shadow(2px 8px 0.9rem #f9f9f9);
+}
+
+.d-flex {
+  display: flex;
+}
+
+.example-row-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sections-holder {
+  margin: 3% auto;
+}

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useFirebaseUsers } from "../../services/firebase/users";
 import errorHandler from "../../services/firebase/error";
 import Footer from "../layout/Footer";
@@ -9,6 +9,7 @@ export default function SignupCreator() {
   const fullNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const [formErrors, setFormErrors] = useState({});
 
   async function handleSubmit(e) {
     e.preventDefault();
