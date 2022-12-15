@@ -6,11 +6,11 @@ import "../../styles/views/Login.css";
 
 export default function Login() {
   const { auth } = useContext(FirebaseContext);
-  const { signUpBrand, signUpCreator } = useFirebaseUsers();
+  // const { signUpBrand, signUpCreator } = useFirebaseUsers();
 
   useEffect(() => {
-    signUpCreator("BOB", "louis@gmail.com", "123456");
-    signUpBrand("BOBO", "Pomme", "louis2@gmail.com", "12345678");
+    // signUpCreator("BOB", "louis@gmail.com", "123456");
+    // signUpBrand("BOBO", "Pomme", "louis2@gmail.com", "12345678");
     // console.log(auth);
   }, [auth]);
 

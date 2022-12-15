@@ -5,7 +5,7 @@ import Footer from "../layout/Footer";
 import "../../styles/views/SignupBrand.css";
 
 export default function SignupBrand() {
-  const { signUpBrand, signUpBrandGoogle, signInBrandGoogle } =
+  const { signUpBrandEmail, signUpBrandGoogleStart, signUpBrandGoogleEnd } =
     useFirebaseUsers();
   const fullNameRef = useRef(null);
   const brandNameRef = useRef(null);
@@ -19,7 +19,7 @@ export default function SignupBrand() {
     e.preventDefault();
     try {
       if (!googleUser) {
-        const response = await signUpBrand(
+        const response = await signUpBrandEmail(
           fullNameRef.current.value,
           brandNameRef.current.value,
           emailRef.current.value,
@@ -29,7 +29,7 @@ export default function SignupBrand() {
         const { success, errors } = response;
         setFormErrors(errors);
       } else {
-        const response = await signUpBrandGoogle(
+        const response = await signUpBrandGoogleEnd(
           googleUser,
           brandNameRef.current.value,
           foundUsRef.current.value
@@ -48,10 +48,10 @@ export default function SignupBrand() {
     }
   }
 
-  async function handleSignInGoogle(e) {
+  async function handleSignUpGoogle(e) {
     e.preventDefault();
     try {
-      const user = await signInBrandGoogle();
+      const user = await signUpBrandGoogleStart();
       console.log(user);
       if (user) {
         setGoogleUser(user);
@@ -84,7 +84,7 @@ export default function SignupBrand() {
         <div className="form-title">Create Your Account</div>
         <div className="form">
           <div className="social-login-holder">
-            <button onClick={handleSignInGoogle}>S'inscrire avec Google</button>
+            <button onClick={handleSignUpGoogle}>S'inscrire avec Google</button>
             {/* <div className="social-login-btn-holder">
               <div
                 id="g_id_onload"
