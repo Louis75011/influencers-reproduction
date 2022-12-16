@@ -8,7 +8,7 @@ import Work from "./components/views/Work";
 import Login from "./components/views/Login";
 import JoinCreator from "./components/views/JoinCreator";
 import JoinBrand from "./components/views/JoinBrand";
-import SignupCreator from "./components/views/SignupCreator";
+import SignupCreator from "./components/views/SignupCreatorTest";
 import SignupBrand from "./components/views/SignupBrand";
 import Terms from "./components/views/Terms";
 import Privacy from "./components/views/Privacy";

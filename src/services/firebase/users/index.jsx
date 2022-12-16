@@ -4,7 +4,6 @@ import { FirebaseContext } from "..";
 import { set, ref } from "firebase/database";
 import {
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";

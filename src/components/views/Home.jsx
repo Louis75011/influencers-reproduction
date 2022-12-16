@@ -6,6 +6,7 @@ import SearchForm from "../containers/home/SearchForm";
 import TrustedBrand from "../containers/home/TrustedBrand";
 import WorksStep from "../containers/home/WorksStep";
 import "../../styles/views/Home.css";
+import HomeCaterories from "../containers/home/HomeCaterories";
 
 export default function Home() {
   return (
@@ -32,10 +33,7 @@ export default function Home() {
         />
         <ProfileListing title="TikTok" subtitle="Hire TikTok influencers" />
 
-        <div>
-          <h3>Categories</h3>
-          <div className="container-product-scrolling"></div>
-        </div>
+          <HomeCaterories />
 
         <div>
           <div className="logo-title">As seen in</div>
