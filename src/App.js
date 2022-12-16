@@ -9,7 +9,7 @@ import Login from "./components/views/Login";
 import JoinCreator from "./components/views/JoinCreator";
 import JoinBrand from "./components/views/JoinBrand";
 import SignupCreator from "./components/views/SignupCreator";
-import SignupBrand from "./components/views/SignupBrand";
+import SignupBrand from "./components/views/SignupBrandCPN";
 import Terms from "./components/views/Terms";
 import Privacy from "./components/views/Privacy";
 import Error from "./components/layout/Error";
