@@ -33,7 +33,7 @@ export default function Home() {
         />
         <ProfileListing title="TikTok" subtitle="Hire TikTok influencers" />
 
-          <HomeCaterories />
+        <HomeCaterories />
 
         <div>
           <div className="logo-title">As seen in</div>

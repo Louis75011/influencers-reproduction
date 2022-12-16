@@ -1,10 +1,29 @@
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../containers/header/NavBar";
 import NavBarItems from "../containers/header/NavBarItems";
 import "../../styles/layout/Header.css";
 
 export default function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    let observer = onAuthStateChanged(getAuth(), (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+        navigate("/");
+        // console.log("user in", user);
+      } else {
+        setIsLoggedIn(false);
+        navigate("/");
+      }
+    });
+    return function () {
+      observer = null;
+    };
+  }, []);
 
   return (
     <header>
@@ -18,22 +37,14 @@ export default function Header() {
       </div>
 
       <div className="dekstop">
-        <NavBar />
+        <NavBar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </div>
 
       <div className="mobile">
-        <nav className="navbar-links">
-          {/* <Link to="/influencers">Explore</Link>
-      <Link to="/work">How It Works</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/brand">Join as Brand</Link>
-      <Link className="text-gradient" to="/creator">
-        Join as Creator
-      </Link> */}
-        </nav>
+        <nav className="navbar-links"></nav>
         {/* NavBar fixed */}
         <div className="mobile-nav-holder">
-          <NavBarItems />
+          <NavBarItems isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         </div>
       </div>
     </header>

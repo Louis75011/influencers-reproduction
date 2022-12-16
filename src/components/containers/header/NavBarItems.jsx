@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
 import { RiSuitcaseLine } from "react-icons/ri";
-import { TbUserCircle } from "react-icons/tb";
+import { TbUserCircle, TbSpeakerphone } from "react-icons/tb";
+import { BiMessageAlt } from "react-icons/bi";
 
 const navItems = {
   explore: {
@@ -26,17 +27,55 @@ const navItems = {
   },
 };
 
-export default function NavBarItems() {
+const navItemsConnected = {
+  explore: {
+    path: "/influencers",
+    icon: <AiOutlineSearch className="nav-icon" />,
+    name: "Explore",
+  },
+  orders: {
+    path: "/",
+    icon: <BiMessageAlt className="nav-icon" />,
+    name: "Lists",
+  },
+  campaigns: {
+    path: "/",
+    icon: <TbSpeakerphone className="nav-icon" />,
+    name: "Billing",
+  },
+  profile: {
+    path: "/",
+    icon: <TbUserCircle className="nav-icon" />,
+    name: "Account",
+  },
+};
+
+export default function NavBarItems(isLoggedIn, setIsLoggedIn) {
   return (
     <div className="mobile">
-      {Object.values(navItems).map((item, index) => {
-        return (
-          <Link key={index} className="nav-item" to={item.path}>
-            <div className="nav-img-holder">{item.icon}</div>
-            <div className="nav-txt">{item.name}</div>
-          </Link>
-        );
-      })}
+      {!isLoggedIn ? (
+        <>
+          {Object.values(navItems).map((item, index) => {
+            return (
+              <Link key={index} className="nav-item" to={item.path}>
+                <div className="nav-img-holder">{item.icon}</div>
+                <div className="nav-txt">{item.name}</div>
+              </Link>
+            );
+          })}
+        </>
+      ) : (
+        <>
+          {Object.values(navItemsConnected).map((item, indexBis) => {
+            return (
+              <Link key={indexBis} className="nav-item" to={item.path}>
+                <div className="nav-img-holder">{item.icon}</div>
+                <div className="nav-txt">{item.name}</div>
+              </Link>
+            );
+          })}
+        </>
+      )}
     </div>
   );
 }

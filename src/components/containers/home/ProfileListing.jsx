@@ -20,9 +20,9 @@ export default function ProfileListing(props) {
       {/* Profile listing */}
       <div className="listing-row">
         <div className="featured-profile-listing-holder">
-          <a href="/beesechurger73" target="_blank">
-            <span className="link-spanner"></span>
-          </a>
+          {/* <a href="/beesechurger73" target="_blank"> */}
+          <span className="link-spanner"></span>
+          {/* </a> */}
 
           <div className="profile-listing-img-holder">
             <img
@@ -49,9 +49,9 @@ export default function ProfileListing(props) {
         </div>
 
         <div className="featured-profile-listing-holder">
-          <a href="/mollymaybrownn" target="_blank">
-            <span className="link-spanner"></span>
-          </a>
+          {/* <a href="/mollymaybrownn" target="_blank"> */}
+          <span className="link-spanner"></span>
+          {/* </a> */}
 
           <div className="profile-listing-img-holder">
             <img
@@ -80,9 +80,9 @@ export default function ProfileListing(props) {
         </div>
 
         <div className="featured-profile-listing-holder">
-          <a href="/johnderting" target="_blank">
-            <span className="link-spanner"></span>
-          </a>
+          {/* <a href="/johnderting" target="_blank"> */}
+          <span className="link-spanner"></span>
+          {/* </a> */}
 
           <div className="profile-listing-img-holder">
             <img
@@ -111,9 +111,9 @@ export default function ProfileListing(props) {
         </div>
 
         <div className="featured-profile-listing-holder">
-          <a href="/johnsstyle" target="_blank">
-            <span className="link-spanner"></span>
-          </a>
+          {/* <a href="/johnsstyle" target="_blank"> */}
+          <span className="link-spanner"></span>
+          {/* </a> */}
 
           <div className="profile-listing-img-holder">
             <img
