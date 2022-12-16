@@ -1,4 +1,3 @@
-import { useFirebaseUsers } from "..";
 import { getDatabase, get, ref, child } from "firebase/database";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useContext } from "react";

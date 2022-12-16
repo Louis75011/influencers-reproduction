@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Footer from "../layout/Footer";
 
 export default function JoinCreator() {
   return (
@@ -10,7 +10,7 @@ export default function JoinCreator() {
           TikTok, and YouTube brand deals
         </h2>
 
-        <Link to="/creator-signup" className="signup-btn btn">
+        {/* <Link to="/creator-signup" className="signup-btn btn">
           Sign Up
         </Link>
 
@@ -24,10 +24,10 @@ export default function JoinCreator() {
             />
           </div>
           <div className="username-btn">Claim</div>
-        </div>
+        </div> */}
       </div>
 
-      <div className="hero-img-holder">
+      {/* <div className="hero-img-holder">
         <video className="hero-vid" playsInline="" autoPlay="" muted="" loop="">
           <source src="https://d5ik1gor6xydq.cloudfront.net/websiteImages/creatorMarketplace/hero.mp4" />
         </video>
@@ -642,7 +642,7 @@ export default function JoinCreator() {
             your services, and manage your own brand deals.
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="cta-holder">
         <div className="cta-overlay-holder">
@@ -661,6 +661,8 @@ export default function JoinCreator() {
           src="https://d5ik1gor6xydq.cloudfront.net/websiteImages/creatorMarketplace/cta.png"
         />
       </div>
+
+      <Footer />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Footer from "../layout/Footer";
 
 export default function JoinBrand() {
   return (
@@ -778,6 +779,8 @@ export default function JoinBrand() {
           />
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
