@@ -21,6 +21,7 @@ export function useFirebaseUsers() {
   const navigate = useNavigate();
 
   async function signInGoogleUser() {
+    console.log("IN");
     // Utilisateur se connecte et on récupère ses données
     const provider = new GoogleAuthProvider();
     const result = await signInWithPopup(auth, provider);
@@ -58,7 +59,7 @@ export function useFirebaseUsers() {
   }
 
   return {
-    signUpCreator,
+    // signUpCreator,
     signInGoogleUser,
     signOut,
   };

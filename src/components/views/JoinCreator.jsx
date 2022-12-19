@@ -1,6 +1,20 @@
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../layout/Footer";
 
 export default function JoinCreator() {
+  const userName = useRef();
+  const navigate = useNavigate();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      navigate("/creator-signup/" + userName.current.value);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div id="content">
       <div className="hero-holder">
@@ -14,12 +28,15 @@ export default function JoinCreator() {
           <div className="username-domain">collabstr.com/</div>
           <div className="username-input-holder">
             <input
+              ref={userName}
               type="text"
               className="username-input"
               placeholder="yourname"
             />
           </div>
-          <div className="username-btn">Claim</div>
+          <button className="username-btn" onClick={handleSubmit}>
+            Claim
+          </button>
         </div>
 
         {/* <Link to="/creator-signup" className="signup-btn btn">

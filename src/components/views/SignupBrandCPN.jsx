@@ -135,7 +135,7 @@ export default function SignupBrand() {
                 placeholder="Full Name"
                 name="name"
                 id="fullname"
-                // minLength="2"
+                minLength="2"
                 maxLength="255"
                 required
               />
@@ -167,7 +167,7 @@ export default function SignupBrand() {
               <input
                 ref={emailRef}
                 className="input"
-                // type="email"
+                type="email"
                 placeholder="Email"
                 name="email"
                 id="email"

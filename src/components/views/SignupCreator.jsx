@@ -3,27 +3,45 @@ import { useFirebaseUsers } from "../../services/firebase/users";
 import errorHandler from "../../services/firebase/error";
 import Footer from "../layout/Footer";
 import "../../styles/views/SignupCreator.css";
+import { useParams } from "react-router-dom";
+import { useSignUpCreatorGoogle } from "../../services/firebase/users/creator/signUpGoogle";
 
 export default function SignupCreator() {
-  // const { signUpBrandGoogleStart, signUpBrandGoogleEnd } =
-  // const signUpEmail = useSignUpBrandEmail();
-  // const [googleUser, setGoogleUser] = useState(null);
-
-  const { signUpCreator } = useFirebaseUsers();
+  const { id } = useParams();
+  const signUpCreatorGoogle = useSignUpCreatorGoogle();
   const fullNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  const foundUsRef = useRef(null);
   const [formErrors, setFormErrors] = useState({});
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       console.log(fullNameRef.current.value);
-      await signUpCreator(
-        fullNameRef.current.value,
-        emailRef.current.value,
-        passwordRef.current.value
-      );
+      // await signUpCreator(
+      //   fullNameRef.current.value,
+      //   emailRef.current.value,
+      //   passwordRef.current.value
+      // );
+    } catch (error) {
+      const msg = errorHandler(error);
+      if (msg) {
+        alert(msg);
+      } else {
+        console.log(error);
+      }
+    }
+  }
+
+  async function handleSignUpGoogle(e) {
+    e.preventDefault();
+    try {
+      const response = await signUpCreatorGoogle(id);
+
+      const { success, errors } = response;
+      setFormErrors(errors);
+      console.log(response);
     } catch (error) {
       const msg = errorHandler(error);
       if (msg) {
@@ -46,14 +64,9 @@ export default function SignupCreator() {
           />
           <div className="social-login-holder">
             <div className="social-login-btn-holder">
-              <div
-                id="g_id_onload"
-                data-client_id="995959859074-ul46r76qmskr4n8q47f05khgj1kjas7e.apps.googleusercontent.com"
-                data-context="signup"
-                data-ux_mode="popup"
-                data-callback="handleCredentialResponse"
-                data-auto_prompt="false"
-              ></div>
+              <button onClick={handleSignUpGoogle}>
+                S'inscrire avec Google
+              </button>
 
               {/* <div
                 className="g_id_signin"
@@ -83,24 +96,36 @@ export default function SignupCreator() {
             </div>
           </div>
           <input
+            ref={fullNameRef}
             className="input"
             type="text"
             placeholder="Full Name"
             name="name"
             id="fullname"
-            ref={fullNameRef}
             minLength="2"
-            required=""
+            maxLength="255"
+            required
           />
+          {formErrors.fullName && (
+            <p style={{ margin: "0 0 17px 0", color: "crimson" }}>
+              {formErrors.fullName}
+            </p>
+          )}
           <input
+            ref={emailRef}
             className="input"
             type="email"
             placeholder="Email"
             name="email"
             id="email"
-            ref={emailRef}
-            required=""
+            maxLength="255"
+            required
           />
+          {formErrors.email && (
+            <p style={{ margin: "0 0 17px 0", color: "crimson" }}>
+              {formErrors.email}
+            </p>
+          )}
           <input
             className="input"
             type="password"
@@ -109,9 +134,15 @@ export default function SignupCreator() {
             id="password"
             ref={passwordRef}
             minLength="6"
-            required=""
+            maxLength="255"
+            required
           />
-          <select className="input" name="found_us" required="">
+          {formErrors.password && (
+            <p style={{ margin: "0 0 17px 0", color: "crimson" }}>
+              {formErrors.password}
+            </p>
+          )}
+          <select ref={foundUsRef} className="input" name="found_us" required>
             <option value="" disabled="" hidden="">
               How did you hear about us?
             </option>
@@ -124,6 +155,12 @@ export default function SignupCreator() {
             <option value="Reddit">Reddit</option>
             <option value="Other">Other</option>
           </select>
+          {formErrors.foundUs && (
+            <p style={{ margin: "0 0 17px 0", color: "crimson" }}>
+              {formErrors.foundUs}
+            </p>
+          )}
+
           <input type="hidden" name="social_login" />
           <button className="submit btn">Sign Up</button>
           <div className="login-signup">
