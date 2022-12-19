@@ -10,6 +10,18 @@ export default function JoinCreator() {
           TikTok, and YouTube brand deals
         </h2>
 
+        <div className="username-holder">
+          <div className="username-domain">collabstr.com/</div>
+          <div className="username-input-holder">
+            <input
+              type="text"
+              className="username-input"
+              placeholder="yourname"
+            />
+          </div>
+          <div className="username-btn">Claim</div>
+        </div>
+
         {/* <Link to="/creator-signup" className="signup-btn btn">
           Sign Up
         </Link>

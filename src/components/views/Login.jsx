@@ -3,6 +3,7 @@ import { useSignInEmail } from "../../services/firebase/users/common/signInEmail
 import { useSignInGoogle } from "../../services/firebase/users/common/signInGoogle";
 import errorHandler from "../../services/firebase/error";
 import "../../styles/views/Login.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const signInGoogle = useSignInGoogle();
@@ -10,13 +11,16 @@ export default function Login() {
   const passwordRef = useRef(null);
   const [formErrors, setFormErrors] = useState({});
   const signInEmail = useSignInEmail();
+  const navigate = useNavigate();
 
   async function handleSignInGoogle(e) {
     e.preventDefault();
     try {
       const response = await signInGoogle();
       console.log(response);
-      return response;
+      if (response.success) {
+        navigate("/");
+      }
     } catch (error) {
       const msg = errorHandler(error);
       if (msg) {
@@ -36,8 +40,10 @@ export default function Login() {
       );
       const { success, errors } = response;
       setFormErrors(errors ?? {});
-
       console.log(response);
+      if (response.success) {
+        navigate("/");
+      }
     } catch (error) {
       const msg = errorHandler(error);
       if (msg) {

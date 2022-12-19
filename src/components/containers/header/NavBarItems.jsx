@@ -50,32 +50,19 @@ const navItemsConnected = {
   },
 };
 
-export default function NavBarItems(isLoggedIn, setIsLoggedIn) {
+export default function NavBarItems({ isLoggedIn }) {
+  const items = isLoggedIn ? navItemsConnected : navItems;
+
   return (
     <div className="mobile">
-      {!isLoggedIn ? (
-        <>
-          {Object.values(navItems).map((item, index) => {
-            return (
-              <Link key={index} className="nav-item" to={item.path}>
-                <div className="nav-img-holder">{item.icon}</div>
-                <div className="nav-txt">{item.name}</div>
-              </Link>
-            );
-          })}
-        </>
-      ) : (
-        <>
-          {Object.values(navItemsConnected).map((item, indexBis) => {
-            return (
-              <Link key={indexBis} className="nav-item" to={item.path}>
-                <div className="nav-img-holder">{item.icon}</div>
-                <div className="nav-txt">{item.name}</div>
-              </Link>
-            );
-          })}
-        </>
-      )}
+      {Object.values(items).map((item, index) => {
+        return (
+          <Link key={index} className="nav-item" to={item.path}>
+            <div className="nav-img-holder">{item.icon}</div>
+            <div className="nav-txt">{item.name}</div>
+          </Link>
+        );
+      })}
     </div>
   );
 }

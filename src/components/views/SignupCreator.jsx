@@ -5,6 +5,10 @@ import Footer from "../layout/Footer";
 import "../../styles/views/SignupCreator.css";
 
 export default function SignupCreator() {
+  // const { signUpBrandGoogleStart, signUpBrandGoogleEnd } =
+  // const signUpEmail = useSignUpBrandEmail();
+  // const [googleUser, setGoogleUser] = useState(null);
+
   const { signUpCreator } = useFirebaseUsers();
   const fullNameRef = useRef(null);
   const emailRef = useRef(null);

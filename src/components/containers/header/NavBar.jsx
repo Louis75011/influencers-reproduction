@@ -1,8 +1,12 @@
 import { getAuth } from "firebase/auth";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { useFirebaseUsers } from "../../../services/firebase/users";
 
-export default function NavBar(isLoggedIn, setIsLoggedIn) {
+export default function NavBar({ isLoggedIn }) {
+  const { signOut } = useFirebaseUsers();
+
   return (
     <nav className="navbar-links">
       <Link to="/influencers">Explore</Link>
@@ -14,7 +18,7 @@ export default function NavBar(isLoggedIn, setIsLoggedIn) {
       </Link>
 
       {isLoggedIn && (
-        <button className="btn" onClick={() => getAuth().signOut()}>
+        <button className="btn" onClick={signOut}>
           Log Out
         </button>
       )}

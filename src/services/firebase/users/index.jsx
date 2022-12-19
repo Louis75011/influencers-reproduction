@@ -7,6 +7,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 export const userRoles = {
   BRAND: "brand",
@@ -17,6 +18,7 @@ export const usersCollection = "users";
 
 export function useFirebaseUsers() {
   const { db, auth } = useContext(FirebaseContext);
+  const navigate = useNavigate();
 
   async function signInGoogleUser() {
     // Utilisateur se connecte et on récupère ses données
@@ -27,6 +29,15 @@ export function useFirebaseUsers() {
     const user = result.user;
 
     return { user, token };
+  }
+
+  async function signOut() {
+    try {
+      await auth.signOut();
+      navigate("/login");
+    } catch (error) {
+      throw error;
+    }
   }
 
   async function signUpCreator(fullName, email, password, foundUs) {
@@ -49,5 +60,6 @@ export function useFirebaseUsers() {
   return {
     signUpCreator,
     signInGoogleUser,
+    signOut,
   };
 }
