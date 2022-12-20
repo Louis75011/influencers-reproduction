@@ -1,29 +1,35 @@
 import { useRef, useState } from "react";
-import { useFirebaseUsers } from "../../services/firebase/users";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSignUpCreatorGoogle } from "../../services/firebase/users/creator/signUpGoogle";
+import { useSignUpCreatorEmail } from "../../services/firebase/users/creator/signUpEmail";
 import errorHandler from "../../services/firebase/error";
 import Footer from "../layout/Footer";
 import "../../styles/views/SignupCreator.css";
-import { useParams } from "react-router-dom";
-import { useSignUpCreatorGoogle } from "../../services/firebase/users/creator/signUpGoogle";
 
 export default function SignupCreator() {
-  const { id } = useParams();
+  const signUpEmail = useSignUpCreatorEmail();
   const signUpCreatorGoogle = useSignUpCreatorGoogle();
+  const navigate = useNavigate();
+  const { creatorName } = useParams();
   const fullNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const foundUsRef = useRef(null);
   const [formErrors, setFormErrors] = useState({});
 
-  async function handleSubmit(e) {
+  async function handleSignUpEmail(e) {
     e.preventDefault();
     try {
-      console.log(fullNameRef.current.value);
-      // await signUpCreator(
-      //   fullNameRef.current.value,
-      //   emailRef.current.value,
-      //   passwordRef.current.value
-      // );
+      const response = await signUpEmail(
+        creatorName,
+        fullNameRef.current.value,
+        emailRef.current.value,
+        passwordRef.current.value,
+        foundUsRef.current.value
+      );
+      const { success, errors } = response;
+      if (success) navigate("/login");
+      setFormErrors(errors);
     } catch (error) {
       const msg = errorHandler(error);
       if (msg) {
@@ -37,11 +43,10 @@ export default function SignupCreator() {
   async function handleSignUpGoogle(e) {
     e.preventDefault();
     try {
-      const response = await signUpCreatorGoogle(id);
-
+      const response = await signUpCreatorGoogle(creatorName);
       const { success, errors } = response;
+      if (success) navigate("/login");
       setFormErrors(errors);
-      console.log(response);
     } catch (error) {
       const msg = errorHandler(error);
       if (msg) {
@@ -56,7 +61,7 @@ export default function SignupCreator() {
     <div id="content">
       <div className="form-holder">
         <h1 className="form-title">Create Your Page</h1>
-        <form className="form" action="" onSubmit={handleSubmit}>
+        <form className="form" action="" onSubmit={handleSignUpEmail}>
           <input
             type="hidden"
             name="csrfmiddlewaretoken"

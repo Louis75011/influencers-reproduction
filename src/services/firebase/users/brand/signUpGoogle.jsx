@@ -22,7 +22,6 @@ export function useSignUpBrandGoogle() {
       const dbRef = ref(getDatabase());
       const snapshot = await get(child(dbRef, `users/${user.uid}`));
       if (snapshot.exists()) {
-        // console.log('userExist', snapshot.val());
         return null;
       } else {
         return user;

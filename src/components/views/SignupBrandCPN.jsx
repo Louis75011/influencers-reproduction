@@ -4,12 +4,13 @@ import Footer from "../layout/Footer";
 import { useSignUpBrandEmail } from "../../services/firebase/users/brand/signUpEmail";
 import { useSignUpBrandGoogle } from "../../services/firebase/users/brand/signUpGoogle";
 import "../../styles/views/SignupBrand.css";
+import { useNavigate } from "react-router-dom";
 
 export default function SignupBrand() {
   const { signUpBrandGoogleStart, signUpBrandGoogleEnd } =
     useSignUpBrandGoogle();
   const signUpEmail = useSignUpBrandEmail();
-
+  const navigate = useNavigate();
   const fullNameRef = useRef(null);
   const brandNameRef = useRef(null);
   const emailRef = useRef(null);
@@ -18,7 +19,7 @@ export default function SignupBrand() {
   const [formErrors, setFormErrors] = useState({});
   const [googleUser, setGoogleUser] = useState(null);
 
-  async function handleSubmit(e) {
+  async function handleSignUpEmail(e) {
     e.preventDefault();
     try {
       if (!googleUser) {
@@ -30,6 +31,7 @@ export default function SignupBrand() {
           foundUsRef.current.value
         );
         const { success, errors } = response;
+        if (success) navigate("/login");
         setFormErrors(errors);
       } else {
         const response = await signUpBrandGoogleEnd(
@@ -38,8 +40,8 @@ export default function SignupBrand() {
           foundUsRef.current.value
         );
         const { success, errors } = response;
+        if (success) navigate("/login");
         setFormErrors(errors);
-        console.log(response);
       }
     } catch (error) {
       const msg = errorHandler(error);
@@ -55,7 +57,6 @@ export default function SignupBrand() {
     e.preventDefault();
     try {
       const user = await signUpBrandGoogleStart();
-      console.log(user);
       if (user) {
         setGoogleUser(user);
       } else {
@@ -77,7 +78,7 @@ export default function SignupBrand() {
       <form
         className="form-holder form-holder-signup"
         action=""
-        onSubmit={handleSubmit}
+        onSubmit={handleSignUpEmail}
       >
         <input
           type="hidden"

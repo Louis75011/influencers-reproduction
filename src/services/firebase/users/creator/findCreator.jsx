@@ -1,28 +1,22 @@
 import {
   getDatabase,
   ref,
-  get,
   child,
   query,
   onValue,
   equalTo,
   orderByChild,
-  limitToLast,
 } from "firebase/database";
-import { useContext } from "react";
-import { FirebaseContext } from "../..";
 
 export default function useCreator() {
-  const { db } = useContext(FirebaseContext);
-
-  async function getCreator(userName) {
+  async function getCreator(creatorName) {
     try {
       const dbRef = ref(getDatabase());
       const usersRef = child(dbRef, "users");
       // retrouver un influenceur existant
       return new Promise((resolve) => {
         onValue(
-          query(usersRef, orderByChild("userName"), equalTo(userName)),
+          query(usersRef, orderByChild("creatorName"), equalTo(creatorName)),
           (snapshot) => {
             resolve(snapshot.val());
           }

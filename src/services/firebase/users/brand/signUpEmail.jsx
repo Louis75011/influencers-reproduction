@@ -40,22 +40,24 @@ export function useSignUpBrandEmail() {
       if (!success) return { success, errors };
 
       const res = await createUserWithEmailAndPassword(auth, email, password);
-      console.log({ res }, "back");
 
-      bcryptjs.hash(password, 10, async function (err, hash) {
-        if (err) throw err;
-        await set(ref(db, usersCollection + "/" + res.user.uid), {
-          fullName,
-          brandName,
-          email,
-          password: hash,
-          foundUs,
-          role: userRoles.BRAND,
+      return await new Promise((resolve, reject) => {
+        bcryptjs.hash(password, 10, async function (err, hash) {
+          if (err) reject(err);
+          await set(ref(db, usersCollection + "/" + res.user.uid), {
+            fullName,
+            brandName,
+            email,
+            password: hash,
+            foundUs,
+            role: userRoles.BRAND,
+          });
+          resolve({ success: true, errors });
         });
-        return { success: true, errors };
       });
     } catch (error) {
-      throw error;
+      console.log(error.message);
+      return { success: false };
     }
   };
 }

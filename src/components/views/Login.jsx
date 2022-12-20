@@ -17,7 +17,6 @@ export default function Login() {
     e.preventDefault();
     try {
       const response = await signInGoogle();
-      console.log(response);
       if (response.success) {
         navigate("/");
       }
@@ -40,7 +39,6 @@ export default function Login() {
       );
       const { success, errors } = response;
       setFormErrors(errors ?? {});
-      console.log(response);
       if (response.success) {
         navigate("/");
       }

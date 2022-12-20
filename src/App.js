@@ -31,7 +31,10 @@ export default function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/creator" element={<JoinCreator />} />
             <Route path="/brand" element={<JoinBrand />} />
-            <Route path="/creator-signup/:id" element={<SignupCreator />} />
+            <Route
+              path="/creator-signup/:creatorName"
+              element={<SignupCreator />}
+            />
             <Route path="/brand-signup" element={<SignupBrand />} />
             {/* Connected's pages */}
 

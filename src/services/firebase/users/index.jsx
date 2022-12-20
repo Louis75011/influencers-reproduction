@@ -21,7 +21,6 @@ export function useFirebaseUsers() {
   const navigate = useNavigate();
 
   async function signInGoogleUser() {
-    // console.log("IN");
     // Utilisateur se connecte et on récupère ses données
     const provider = new GoogleAuthProvider();
     const result = await signInWithPopup(auth, provider);
@@ -44,8 +43,6 @@ export function useFirebaseUsers() {
   async function signUpCreator(fullName, email, password, foundUs) {
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
-      console.log({ res }, "2");
-
       await set(ref(db, usersCollection + "/" + res.user.uid), {
         fullName,
         email,

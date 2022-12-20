@@ -4,19 +4,19 @@ import useCreator from "../../services/firebase/users/creator/findCreator";
 import Footer from "../layout/Footer";
 
 export default function JoinCreator() {
-  const userName = useRef();
+  const creatorName = useRef();
   const navigate = useNavigate();
   const { getCreator } = useCreator();
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const user = await getCreator(userName.current.value);
+      const user = await getCreator(creatorName.current.value);
       if (user) {
-        alert("Username already exist");
+        alert("Creator name already exist");
         return;
       }
-      navigate("/creator-signup/" + userName.current.value);
+      navigate("/creator-signup/" + creatorName.current.value);
     } catch (error) {
       console.log(error);
     }
@@ -44,7 +44,7 @@ export default function JoinCreator() {
           <div className="username-domain">collabstr.com/</div>
           <div className="username-input-holder">
             <input
-              ref={userName}
+              ref={creatorName}
               type="text"
               className="username-input"
               style={{ border: "none" }}
