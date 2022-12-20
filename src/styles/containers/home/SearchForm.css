@@ -79,6 +79,7 @@
 }
 
 .filter-search-input {
+  pointer-events: none;
   border: none;
 }
 

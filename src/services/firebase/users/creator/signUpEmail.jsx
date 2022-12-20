@@ -1,10 +1,10 @@
-// import { useContext } from "react";
-// import { usersCollection, userRoles } from "..";
-// import { FirebaseContext } from "../..";
-// import { set, ref } from "firebase/database";
-// import { createUserWithEmailAndPassword } from "firebase/auth";
-// import isEmail from "validator/lib/isEmail";
-// import bcryptjs from "bcryptjs";
+import { useContext } from "react";
+import { usersCollection, userRoles } from "..";
+import { FirebaseContext } from "../..";
+import { set, ref } from "firebase/database";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import isEmail from "validator/lib/isEmail";
+import bcryptjs from "bcryptjs";
 
 // function validateFields(fullName, brandName, email, password, foundUs) {
 //   const errors = {}; // canSubmit

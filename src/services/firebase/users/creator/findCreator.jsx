@@ -1,15 +1,33 @@
-import { child, getDatabase, ref } from "firebase/database";
-import { get } from "http";
+import {
+  getDatabase,
+  ref,
+  get,
+  child,
+  query,
+  onValue,
+  equalTo,
+  orderByChild,
+  limitToLast,
+} from "firebase/database";
+import { useContext } from "react";
+import { FirebaseContext } from "../..";
 
 export default function useCreator() {
   const { db } = useContext(FirebaseContext);
 
   async function getCreator(userName) {
     try {
-      // const dbRef = ref(getDatabase());
-      // const { user } = await signInGoogleUser();
-      // const snapshot = await get(child(dbRef, `users/${user.uid}`));
-      // TODO : Trouver comment faire get sur firebase
+      const dbRef = ref(getDatabase());
+      const usersRef = child(dbRef, "users");
+      // retrouver un influenceur existant
+      return new Promise((resolve) => {
+        onValue(
+          query(usersRef, orderByChild("userName"), equalTo(userName)),
+          (snapshot) => {
+            resolve(snapshot.val());
+          }
+        );
+      });
     } catch (error) {
       throw error;
     }
@@ -17,18 +35,3 @@ export default function useCreator() {
 
   return { getCreator };
 }
-//       if (snapshot.exists()) throw new Error('Email already exist')
-//       userName = userName.substr(0, 255);
-//       const { success, errors } = validateFields(userName);
-//       if (!success) return { success, errors };
-//       await set(ref(db, usersCollection + "/" + user.uid), {
-//         userName,
-//         fullName: user.displayName,
-//         email: user.email,
-//         role: userRoles.CREATOR,
-//       });
-//       return { success: true, errors };
-//     } catch (error) {
-//       throw error;
-//     }
-//   }

@@ -1,14 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { createContext } from "react";
-import {
-  getAuth,
-  // GoogleAuthProvider,
-  // signInWithEmailAndPassword,
-} from "firebase/auth";
-import { getDatabase, set, ref } from "firebase/database";
-// ​​  signInWithPopup,  // ​​  createUserWithEmailAndPassword,  // ​sendPasswordResetEmail,  // ​​  signOut,
+import { getAuth } from "firebase/auth";
+import { getDatabase } from "firebase/database";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -36,7 +30,7 @@ export const FirebaseContext = createContext(null);
 
 export default function FirebaseProvider({ children }) {
   return (
-    <FirebaseContext.Provider value={{ auth, db }}>
+    <FirebaseContext.Provider value={{ app, auth, db }}>
       {children}
     </FirebaseContext.Provider>
   );

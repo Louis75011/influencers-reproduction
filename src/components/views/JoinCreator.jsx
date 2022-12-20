@@ -1,14 +1,21 @@
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import useCreator from "../../services/firebase/users/creator/findCreator";
 import Footer from "../layout/Footer";
 
 export default function JoinCreator() {
   const userName = useRef();
   const navigate = useNavigate();
+  const { getCreator } = useCreator();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     try {
+      const user = await getCreator(userName.current.value);
+      if (user) {
+        alert("Username already exist");
+        return;
+      }
       navigate("/creator-signup/" + userName.current.value);
     } catch (error) {
       console.log(error);
@@ -24,17 +31,27 @@ export default function JoinCreator() {
           TikTok, and YouTube brand deals
         </h2>
 
-        <div className="username-holder">
+        <div
+          className="username-holder username-adds"
+          style={{
+            display: "flex",
+            boxShadow: "rgba(120, 120, 170, 0.2) 0 2px 10px 0",
+            padding: "1rem",
+            borderRadius: "2rem",
+            width: "52vh",
+          }}
+        >
           <div className="username-domain">collabstr.com/</div>
           <div className="username-input-holder">
             <input
               ref={userName}
               type="text"
               className="username-input"
+              style={{ border: "none" }}
               placeholder="yourname"
             />
           </div>
-          <button className="username-btn" onClick={handleSubmit}>
+          <button className="username-btn btn" onClick={handleSubmit}>
             Claim
           </button>
         </div>

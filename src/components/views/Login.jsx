@@ -99,7 +99,9 @@ export default function Login() {
               </div>
             </div>
 
-            <button onClick={handleSignInGoogle}>Se connecter à Google</button>
+            <button className="signup-btn" onClick={handleSignInGoogle}>
+              Se connecter à Google
+            </button>
 
             <div className="seperator">
               <span>or</span>
