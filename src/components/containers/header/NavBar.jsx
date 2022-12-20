@@ -1,5 +1,3 @@
-import { getAuth } from "firebase/auth";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { useFirebaseUsers } from "../../../services/firebase/users";

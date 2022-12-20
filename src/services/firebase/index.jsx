@@ -30,7 +30,7 @@ export const FirebaseContext = createContext(null);
 
 export default function FirebaseProvider({ children }) {
   return (
-    <FirebaseContext.Provider value={{ app, auth, db }}>
+    <FirebaseContext.Provider value={{ auth, db }}>
       {children}
     </FirebaseContext.Provider>
   );

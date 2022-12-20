@@ -28,7 +28,7 @@ export default function SignupCreator() {
         foundUsRef.current.value
       );
       const { success, errors } = response;
-      if (success) navigate("/login");
+      if (success) navigate("/");
       setFormErrors(errors);
     } catch (error) {
       const msg = errorHandler(error);
@@ -45,7 +45,7 @@ export default function SignupCreator() {
     try {
       const response = await signUpCreatorGoogle(creatorName);
       const { success, errors } = response;
-      if (success) navigate("/login");
+      if (success) navigate("/");
       setFormErrors(errors);
     } catch (error) {
       const msg = errorHandler(error);
@@ -69,7 +69,7 @@ export default function SignupCreator() {
           />
           <div className="social-login-holder">
             <div className="social-login-btn-holder">
-              <button onClick={handleSignUpGoogle}>
+              <button className="signup-btn" onClick={handleSignUpGoogle}>
                 S'inscrire avec Google
               </button>
 

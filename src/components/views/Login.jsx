@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import { useSignInEmail } from "../../services/firebase/users/common/signInEmail";
 import { useSignInGoogle } from "../../services/firebase/users/common/signInGoogle";
+import { useNavigate } from "react-router-dom";
 import errorHandler from "../../services/firebase/error";
 import "../../styles/views/Login.css";
-import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const signInGoogle = useSignInGoogle();

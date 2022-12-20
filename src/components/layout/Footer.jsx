@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { AiFillInstagram, AiOutlineTwitter } from "react-icons/ai";
 import { FaTiktok } from "react-icons/fa";
-
 import "../../styles/layout/Footer.css";
 
 export default function Footer() {

@@ -3,6 +3,7 @@ import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
 import { RiSuitcaseLine } from "react-icons/ri";
 import { TbUserCircle, TbSpeakerphone } from "react-icons/tb";
 import { BiMessageAlt } from "react-icons/bi";
+import { useFirebaseUsers } from "../../../services/firebase/users";
 
 const navItems = {
   explore: {
@@ -52,7 +53,8 @@ const navItemsConnected = {
 
 export default function NavBarItems({ isLoggedIn }) {
   const items = isLoggedIn ? navItemsConnected : navItems;
-
+  const { signOut } = useFirebaseUsers();
+    
   return (
     <div className="mobile">
       {Object.values(items).map((item, index) => {
@@ -63,6 +65,11 @@ export default function NavBarItems({ isLoggedIn }) {
           </Link>
         );
       })}
+      {isLoggedIn && (
+        <button className="btn" onClick={signOut}>
+          Log Out
+        </button>
+      )}
     </div>
   );
 }

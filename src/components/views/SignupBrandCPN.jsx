@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
-import errorHandler from "../../services/firebase/error";
-import Footer from "../layout/Footer";
 import { useSignUpBrandEmail } from "../../services/firebase/users/brand/signUpEmail";
 import { useSignUpBrandGoogle } from "../../services/firebase/users/brand/signUpGoogle";
-import "../../styles/views/SignupBrand.css";
 import { useNavigate } from "react-router-dom";
+import errorHandler from "../../services/firebase/error";
+import Footer from "../layout/Footer";
+import "../../styles/views/SignupBrand.css";
 
 export default function SignupBrand() {
   const { signUpBrandGoogleStart, signUpBrandGoogleEnd } =
@@ -31,7 +31,7 @@ export default function SignupBrand() {
           foundUsRef.current.value
         );
         const { success, errors } = response;
-        if (success) navigate("/login");
+        if (success) navigate("/");
         setFormErrors(errors);
       } else {
         const response = await signUpBrandGoogleEnd(
@@ -40,7 +40,7 @@ export default function SignupBrand() {
           foundUsRef.current.value
         );
         const { success, errors } = response;
-        if (success) navigate("/login");
+        if (success) navigate("/");
         setFormErrors(errors);
       }
     } catch (error) {
@@ -88,7 +88,7 @@ export default function SignupBrand() {
         <div className="form-title">Create Your Account</div>
         <div className="form">
           <div className="social-login-holder">
-            <button onClick={handleSignUpGoogle}>S'inscrire avec Google</button>
+            <button className="signup-btn" onClick={handleSignUpGoogle}>S'inscrire avec Google</button>
             {/* <div className="social-login-btn-holder">
               <div
                 id="g_id_onload"

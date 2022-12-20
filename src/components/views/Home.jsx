@@ -5,8 +5,8 @@ import ProfileListing from "../containers/home/ProfileListing";
 import SearchForm from "../containers/home/SearchForm";
 import TrustedBrand from "../containers/home/TrustedBrand";
 import WorksStep from "../containers/home/WorksStep";
-import "../../styles/views/Home.css";
 import HomeCaterories from "../containers/home/HomeCaterories";
+import "../../styles/views/Home.css";
 
 export default function Home() {
   return (

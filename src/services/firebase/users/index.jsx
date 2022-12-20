@@ -1,9 +1,6 @@
-// import isEmail from "validator/lib/isEmail";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { FirebaseContext } from "..";
-import { set, ref } from "firebase/database";
 import {
-  createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
@@ -17,7 +14,7 @@ export const userRoles = {
 export const usersCollection = "users";
 
 export function useFirebaseUsers() {
-  const { db, auth } = useContext(FirebaseContext);
+  const { auth } = useContext(FirebaseContext);
   const navigate = useNavigate();
 
   async function signInGoogleUser() {
@@ -40,23 +37,7 @@ export function useFirebaseUsers() {
     }
   }
 
-  async function signUpCreator(fullName, email, password, foundUs) {
-    try {
-      const res = await createUserWithEmailAndPassword(auth, email, password);
-      await set(ref(db, usersCollection + "/" + res.user.uid), {
-        fullName,
-        email,
-        password,
-        foundUs,
-        role: userRoles.CREATOR,
-      });
-    } catch (error) {
-      throw error;
-    }
-  }
-
   return {
-    // signUpCreator,
     signInGoogleUser,
     signOut,
   };
