@@ -1,70 +1,12 @@
-# Getting Started with Create React App
+# Notes de défense du code
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Orientations : peu de commentaires dans le code estimant le nom des fonctions suffisement représentative de ce qu'elles font.
+Documentation gratuite Firebase pas si évidente et changeante par rapport à la version payante Firestore.
 
-## Available Scripts
+### Architecture et logique : 
 
-In the project directory, you can run:
+- Dossier composant de React pour le frontend (mises en page, pages à proprement parler et container pour alléger le code ou bien réutiliser le composant comme SearchForm, gestion de connexion dans la barre de navigation pour distinguer utilisateur connecté de non connecté, avantage de rapidité du framework).
 
-### `npm start`
+- Dossier style pour mettre en forme la page (CSS pur pour pouvoir mieux copier le site qu'avec une librairie toute faite, style Bootstrap, hésitation pour le placement seulement).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Dossier services pour le backend de Firebase (configuration basique pour la BDD + authentification avec Provider sur toute l'appli et pour la création utilisateur INDEX.jsx, idem pour la gestion des messages d'erreur à la connexion pour tout type, séparation de la logique 'brand' - un champ en plus - et 'creator' - ajout de chemin de profile par le nom et chercher si compte déjà existant dans la BDD -, ou encore connexion/inscription par Google et connexion/inscription par l'email, bouton de déconnexion singOut, protection et limitations des champs ce qui est une sécurité absente du site originel par la suppression HTML du 'required') + design incomplet pour me centrer sur l'interaction frontend/backend primordiale dans ce test. Firebase beaucoup apprécié car donnant un backend rapide, compréhensible et efficace.

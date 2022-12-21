@@ -88,7 +88,9 @@ export default function SignupBrand() {
         <div className="form-title">Create Your Account</div>
         <div className="form">
           <div className="social-login-holder">
-            <button className="signup-btn" onClick={handleSignUpGoogle}>S'inscrire avec Google</button>
+            <button className="signup-btn" onClick={handleSignUpGoogle}>
+              S'inscrire avec Google
+            </button>
             {/* <div className="social-login-btn-holder">
               <div
                 id="g_id_onload"

@@ -54,7 +54,7 @@ const navItemsConnected = {
 export default function NavBarItems({ isLoggedIn }) {
   const items = isLoggedIn ? navItemsConnected : navItems;
   const { signOut } = useFirebaseUsers();
-    
+
   return (
     <div className="mobile">
       {Object.values(items).map((item, index) => {

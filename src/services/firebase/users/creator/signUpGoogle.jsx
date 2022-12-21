@@ -5,7 +5,7 @@ import { getDatabase, get, set, ref, child } from "firebase/database";
 
 function validateFields(creatorName) {
   const errors = {}; // canSubmit
-  if (creatorName === "") errors.creatorName = "Ce champ est obligatoire";
+  if (creatorName === "") errors.creatorName = "Field required";
 
   return { success: Object.keys(errors).length === 0, errors };
 }

@@ -1,9 +1,6 @@
 import { useContext } from "react";
 import { FirebaseContext } from "..";
-import {
-  GoogleAuthProvider,
-  signInWithPopup,
-} from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 export const userRoles = {
