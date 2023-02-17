@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <header>
       <div className="container-title">
-        <h1 onClick={() => navigate("/")}>collabstr</h1>
+        <h1 onClick={() => navigate("/")}>Influencers</h1>
         <img
           src={process.env.PUBLIC_URL + "/assets/site/collabstr.png"}
           height="35px"
